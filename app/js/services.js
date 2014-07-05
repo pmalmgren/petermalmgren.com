@@ -15,4 +15,16 @@
 		return blogAPI;
 	});
 
+	// contains all the static information about the blog, last time updated, number of posts, 
+	// and anything else I think of in the future
+	app.factory('blogMetaAPI', function($http) {
+		var blogMetaAPI = {};
+
+		blogMetaAPI.getMetaData = function() {
+			return $http.get('/app/api/index.json');
+		}
+
+		return blogMetaAPI;
+	});
+
 })();

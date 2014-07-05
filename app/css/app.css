@@ -5,6 +5,10 @@ body {
   font-weight: 300;
 }
 
+#posts {
+  margin-left: 120px;
+}
+
 #top-filler {
   background-color: #FCE135;
   height: 5px;
@@ -61,4 +65,12 @@ small {
 h2 {
   padding-top: 0px;
   margin-top: 0px;
+}
+
+#headlines {
+  
+}
+
+#headlines-content {
+  padding: 5px 5px 5px 5px;
 }

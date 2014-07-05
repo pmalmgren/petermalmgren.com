@@ -24,25 +24,37 @@
 <div class="container">
   <nav-bar></nav-bar>
   <div class="jumbotron">
-    <h1 class="jumbotron-title">Think, Do</h1>
-    <p class="jumbotron-text">Code, Beer</p>
+    <h1 class="jumbotron-title">TDD</h1>
+    <p class="jumbotron-text">Think, Drink, Do.</p>
   </div>
 </div>
 
 
-  <div ng-controller="PostsController">
-    <div ng-repeat="post in posts">
+<div class="container" ng-controller="PostsController">
+  <div class="col-md-7" id="posts">
+    <div class="row" ng-repeat="post in posts">      
+      <blog-post></blog-post>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+
+  <div class="col-md-2" id="headlines">
+    <div id="headlines-content">
       <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-6">
-          <blog-post></blog-post>
-        </div>
-        <div class="col-md-2"></div>
+      <h4>Recent Posts</h4>
+      </div>
+      <div class="row" ng-repeat="post in posts">
+        <small><a href="/app/#">{{post.title}}</a></small>
       </div>
     </div>
   </div>
+</div>
 
+<!-- pagination -->
+
+<div class="row" id="footer">
+  
+</div>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -58,7 +70,6 @@
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
-  
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
