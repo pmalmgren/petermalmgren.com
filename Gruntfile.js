@@ -93,15 +93,19 @@ module.exports = function(grunt) {
 
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass','exec']
       },
       layouts: {
         files: '_layouts/**/*.html',
         tasks: ['exec']
       },
       source: {
-        files: '_src/**/*.html',
+        files: ['_src/*.html'],
         tasks: ['replace:dev','exec']
+      },
+      posts: {
+        files: '_posts/*',
+        tasks: ['exec']
       }
     }
   });

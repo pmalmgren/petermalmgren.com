@@ -1,0 +1,56 @@
+.top-space {
+	background-color: #219044;
+	height: 10px;
+	width: 100%;
+	margin-bottom: 60px;
+}
+
+#post-list
+{
+	#post {
+		article {
+	
+		}
+		display: table;
+		margin: 0 auto;
+	}
+}
+
+#title-links {
+	.button-group {
+		display: table;
+		margin: 0 auto;
+		li {
+			padding-left: 20px;
+			margin-top: 0px;
+			padding-top: 0px;
+			a {
+				font-weight: bold;
+			}
+		}
+		ul {
+
+		}
+	}
+}
+
+
+#title {
+	text-align: center;
+	padding-bottom: 0px;
+
+	h1 {
+		font-family: 'Oswald', sans-serif;
+		a {
+			color: #4A5057;
+		}
+		a:hover {
+			color: #141517;
+		}
+	}
+}
+
+article {
+	text-align: center;
+	margin-top: 50px;
+}
