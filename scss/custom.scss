@@ -5,25 +5,39 @@
 	margin-bottom: 60px;
 }
 
-#post-list
-{
-	#post {
-		article {
-	
+#copyright {
+	text-align: center;
+}
+
+
+#post {
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 40px;
+	article {
+		text-align: left;
+	}
+	h2 {
+		font-family: 'Oswald', sans-serif;
+		a {
+			color: #4A5057;
 		}
-		display: table;
-		margin: 0 auto;
+		a:hover {
+			color: #141517;
+		}
 	}
 }
+
 
 #title-links {
 	.button-group {
 		display: table;
 		margin: 0 auto;
 		li {
-			padding-left: 20px;
-			margin-top: 0px;
-			padding-top: 0px;
+			padding-left: 10px;
+			padding-right: 10px;
+			text-align: center;
 			a {
 				font-weight: bold;
 			}

@@ -100,7 +100,7 @@ module.exports = function(grunt) {
         tasks: ['exec']
       },
       source: {
-        files: ['_src/*.html'],
+        files: ['_src/*.html','index.html'],
         tasks: ['replace:dev','exec']
       },
       posts: {

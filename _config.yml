@@ -50,6 +50,12 @@ timezone:      null
 quiet:    false
 defaults: []
 
+# For RSS
+
+name: Peter Malmgren's Blog
+description: A blog about software development
+url: http://www.petermalmgren.com/
+
 # Markdown Processors
 maruku:
   use_tex:    false
