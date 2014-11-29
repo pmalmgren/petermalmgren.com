@@ -45,6 +45,7 @@ relative_permalinks: false
 # Outputting
 permalink:     date
 paginate_path: /page:num
+paginate: 15
 timezone:      null
 
 quiet:    false
