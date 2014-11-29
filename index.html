@@ -7,9 +7,9 @@ title: Peter Malmgren
 	<div class="large-12 large-centered columns" role="content">
 		{% for post in site.posts %}
 			<div id="post-preview">
-                <div class="large-4 columns">
+        <div class="large-3 columns" id="post-info">
 				<h6>
-                <span class="fa fa-calendar"></span> 
+        <span class="fa fa-calendar"></span> 
 				{% assign d = post.date | date: "%-d" %}
 				{{ post.date | date: "%B" }} 
 				{% case d %}
@@ -20,25 +20,25 @@ title: Peter Malmgren
 				  {% endcase %}
 				{{ post.date | date: "%Y" }}
 				</h6>
-                <div id="post-tags">
-                {% if post.tags.size > 0 %}
-                <span class="fa fa-tags"></span>
-                {% endif %}
-                {% for tag in post.tags %}
-                {{ tag }}
-                {% endfor %}
-                </div>
-                </div>
-                <div class="large-8 columns">
-                <a href="{{ post.url }}">
-                    <h4>{{ post.title }}</h4>
-                </a>
+        <div id="post-tags">
+        {% if post.tags.size > 0 %}
+        <span class="fa fa-tags"></span>
+        {% endif %}
+        {% for tag in post.tags %}
+        {{ tag }}
+        {% endfor %}
+        </div>
+        </div>
+        <div class="large-9 columns">
+        <a href="{{ post.url }}">
+          <h4>{{ post.title }}</h4>
+        </a>
 				{{ post.preview | truncatewords: 25 }}
-                </div>
-			</div>
-            {% unless forloop.last %}
-            <hr>
-            {% endunless %}
+        </div>
+			  </div>
+        {% unless forloop.last %}
+        <hr>
+        {% endunless %}
   		{% endfor %}
 	</div>
 </div>

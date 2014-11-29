@@ -1,6 +1,14 @@
 // icons
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 
+// animation mixin
+@mixin transition-duration($duration) {
+    -webkit-transition: opacity $duration ease-in 0s;
+    -moz-transition: opacity $duration ease-in 0s;
+    -o-transition: opacity $duration ease-in 0s;
+    transition: opacity $duration ease-in 0s;
+}
+
 .top-space {
 	height: 10px;
 	width: 100%;
@@ -16,15 +24,9 @@
 #post,#post-preview {
 	display: table;
 	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
+    padding: 20 0 20 0;
 	min-width: 100%;
-	article {
-        p {
-            font-weight: 300;
-        }
-		text-align: left;
-	}
+    text-align: left;
 	h1,h2,h3 {
 		a {
 			color: #4A5057;
@@ -33,12 +35,18 @@
 			color: #141517;
 		}
 	}
+    // font awesome
     .fa {
         font-size: 0.9em;
         color: #999;
+        margin-right: 4px;
     }
     .post-tags, h6 {
-        font-size: 1.1em;
+        font-size: 1.0em;
+    }
+    // left side
+    #post-info {
+        margin-top: 40px;
     }
 }
 
@@ -49,14 +57,8 @@
 		display: table;
 		margin: 0 auto;
 		li {
-			padding-left: 10px;
-			padding-right: 10px;
+            padding: 0 10 0 10;
 			text-align: center;
-			a {
-			}
-		}
-		ul {
-
 		}
 	}
 }
@@ -68,10 +70,12 @@
 	h1,h2 {
 		font-family: 'Oswald', sans-serif;
 		a {
+            @include transition-duration(0.25s);
 			color: #4A5057;
+            opacity: 0.5;
 		}
 		a:hover {
-			color: #141517;
+            opacity: 1.0;
 		}
 	}
 
@@ -86,10 +90,7 @@
             padding-left: 5px;
             display: inline-block;
             img {
-                -webkit-transition: opacity 0.25s ease-in 0s;
-	            -moz-transition: opacity 0.25s ease-in 0s;
-	            -o-transition: opacity 0.25s ease-in 0s;
-	            transition: opacity 0.25s ease-in 0s;
+                @include transition-duration(0.25s);
                 opacity: .3;
             }
             img:hover {
@@ -100,6 +101,19 @@
 }
 
 article {
-	text-align: center;
-	margin-top: 50px;
+    font-family: 'Lato', sans-serif;
+    p {
+        font-weight: 300;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    margin-top: 0px;
+    margin-left: 0px;
 }
