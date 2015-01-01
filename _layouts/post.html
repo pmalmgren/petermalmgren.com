@@ -2,37 +2,30 @@
 layout: default
 ---
 <div class="row">
-	<div class="large-12 columns" role="content">
-		<div id="post">
-      <div class="large-3 columns" id="post-info">
-        <h6>
-          <span class="fa fa-calendar"></span> 
-          {% assign d = page.date | date: "%-d" %}
-          {{ page.date | date: "%B" }} 
-          {% case d %}
-            {% when '1' or '21' or '31' %}{{ d }}st,
-            {% when '2' or '22' %}{{ d }}nd,
-            {% when '3' or '23' %}{{ d }}rd,
-            {% else %}{{ d }}th,
-            {% endcase %}
-          {{ page.date | date: "%Y" }}
-        </h6>
-        <div id="page-tags">
-          {% if page.tags.size > 0 %}
-            <span class="fa fa-tags"></span>
-          {% endif %}
-          {% for tag in page.tags %}
-            {{ tag }}
-          {% endfor %}
-        </div>
-      </div>
-      <div class="large-9 columns" id="post-content">
-        <article>
-          {{ content }}
-         </article>
-      </div>
-		</div>
-	</div>
+   <div id="title">
+    <p class="meta">
+     {% for tag in page.tags %}
+     {{ tag }}
+     {% endfor %}
+    </p>
+    <h2>{{ page.title }}</h2>
+    <p class="meta">
+    {% assign d = page.date | date: "%-d" %}
+    {{ page.date | date: "%B" }} 
+    {% case d %}
+      {% when '1' or '21' or '31' %}{{ d }}st,
+      {% when '2' or '22' %}{{ d }}nd,
+      {% when '3' or '23' %}{{ d }}rd,
+      {% else %}{{ d }}th,
+      {% endcase %}
+    {{ page.date | date: "%Y" }}
+    </p>
+    </div>
+    <div class="large-10 large-centered columns">
+    <article>
+    {{ content }}
+    </article>
+    </div>
 </div>
 
 {% if page.comments %}

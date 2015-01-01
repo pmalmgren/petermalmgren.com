@@ -20,9 +20,32 @@ module.exports = function(grunt) {
       build_jekyll: 'jekyll build'
     },
 
-    watch: {
-      grunt: { files: ['Gruntfile.js'] },
+    bowercopy: {
+      options: {
+        clean: false
+      },
 
+      css: {
+        options: {
+          destPrefix: 'css/'
+        },
+        files: {
+          'font-awesome.css': 'font-awesome/css/font-awesome.min.css',
+          'default.css': 'highlight/src/styles/solarized_light.css'
+        }
+      },
+
+      js: {
+        options: {
+          destPrefix: 'js/'
+        },
+        files: {
+          'highlight.pack.js': 'highlight/build/highlight.pack.js'
+        }
+      }
+    },
+
+    watch: {
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['sass','exec']
@@ -32,7 +55,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-bowercopy');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-replace');
 
