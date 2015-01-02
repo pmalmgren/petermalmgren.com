@@ -51,9 +51,14 @@ timezone:      null
 quiet:    false
 defaults: []
 
+# Tags
+tag_page_layout: tag_page
+tag_page_dir: tag
+tag_permalink_style: pretty
+
 # For RSS
 
-name: Peter Malmgren's Blog
+name: Another Blog
 description: A blog about software development
 url: http://www.petermalmgren.com/
 
