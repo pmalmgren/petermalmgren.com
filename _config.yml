@@ -11,7 +11,7 @@ collections: null
 # Handling Reading
 safe:         false
 include:      [".htaccess"]
-exclude:	  [config.rb, bower.json, bower_components, node_modules, scss, Gruntfile.js, package.json]
+exclude:	  [config.rb, bower.json, bower_components, node_modules, scss, dist, Gruntfile.js, package.json]
 keep_files:   [".git", ".svn"]
 encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"

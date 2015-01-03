@@ -8,10 +8,10 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          outputStyle: 'compressed'
+          outputStyle: 'nested'
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          'dist/custom.css': 'scss/app.scss'
         }        
       }
     },
@@ -27,21 +27,50 @@ module.exports = function(grunt) {
 
       css: {
         options: {
-          destPrefix: 'css/'
+          destPrefix: 'dist/'
         },
         files: {
-          'font-awesome.css': 'font-awesome/css/font-awesome.min.css',
           'default.css': 'highlight/src/styles/solarized_light.css'
         }
       },
 
       js: {
         options: {
-          destPrefix: 'js/'
+          destPrefix: 'dist/'
         },
         files: {
-          'highlight.pack.js': 'highlight/build/highlight.pack.js'
+          'highlight.pack.js': 'highlight/build/highlight.pack.js',
+          'retina.min.js': 'retinajs/dist/retina.min.js'
         }
+      }
+    },
+
+    concat: {
+      options: { 
+        separator: ';',
+      },
+      dist: {
+        src: ['dist/highlight.pack.js','dist/retina.min.js'],
+        dest: 'js/app.js'
+      }
+    },
+
+    concat_css: {
+      options: {},
+      all: {
+        src: ['dist/default.css','dist/custom.css'],
+        dest: 'dist/app.css'
+      },
+    },
+
+    cssmin: {
+      target: {
+        files: [{
+          expand: false,
+          src: ['dist/app.css'],
+          dest: 'css/app.min.css',
+          ext: '.min.css'
+        }]
       }
     },
 
@@ -57,9 +86,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bowercopy');
   grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-concat-css');
   grunt.loadNpmTasks('grunt-replace');
 
-  grunt.registerTask('build-dist', ['sass','exec']);
-  grunt.registerTask('build-dev', ['sass','exec']);
-  grunt.registerTask('default', ['build-dev','watch']);
+  grunt.registerTask('build', ['bowercopy','sass','concat','concat_css','cssmin','exec']);
+  grunt.registerTask('default', ['exec','sass','watch']);
 }
