@@ -1,0 +1,6 @@
+#!/bin/sh
+USER=peter
+HOST=petermalmgren.com
+DIR=/var/www/petermalmgren.com/html/
+
+hugo && rsync -avz --delete public/ ${USER}@${HOST}:${DIR}
