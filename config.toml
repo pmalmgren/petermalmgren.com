@@ -1,0 +1,37 @@
+baseurl = "https://petermalmgren.com/"
+languageCode = "en-us"
+title = "Peter Malmgren"
+theme = "hyde"
+preserveTaxonomyNames = true
+rssLimit = 10
+paginate = 10
+pygmentsCodefences = true
+pygmentsStyle = "native"
+
+[taxonomies]
+    category = "categories"
+    tag = ""
+
+[permalinks]
+    post = "/:slug/"
+    page = "/:slug/"
+
+[[menu.main]]
+    name = "About me"
+    url = "/about/"
+    weight = -110
+
+[[menu.main]]
+    name = "Categories"
+    url = "/categories"
+    weight = -130
+
+[params]
+    description = "My personal blog about software engineering, productivity, and life."
+    themeColor = "theme-base-0g"
+
+    [params.logo]
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
