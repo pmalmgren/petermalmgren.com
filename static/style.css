@@ -85,7 +85,7 @@ footer .social a {
         text-align: center;
         display: grid;
         grid-gap: 20px;
-        grid-template-rows: [row] 50px [row] 100px;
+        grid-template-rows: [row] 75px [row] 75px;
         grid-template-columns: [col] auto;
         border-bottom: 1px solid rgba(44,44,44,0.2);
     }
@@ -102,6 +102,10 @@ footer .social a {
 
     .post-list {
 		padding-top: 0;
+    }
+
+    .post-list li:last-child {
+        margin-bottom: 60px;
     }
 
     .post {
