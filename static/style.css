@@ -1,0 +1,280 @@
+html, body {
+	height: 100vh;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+body {
+    font-family: Overpass;
+}
+
+article {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+    display: grid;
+    color: #444;
+    margin: 40px;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+            "header"
+            "content"
+            "footer";
+}
+
+footer {
+ 	margin-left: 40px;
+	margin-right: 40px;
+	grid-area: footer;
+    font-family: Overpass;
+    color: rgba(44,44,44,0.4);
+	overflow: hidden;
+}
+
+footer p {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+footer .social a {
+	text-decoration: none;
+	font-size: 2.0em;
+	margin-right: 5px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.fa-twitter {
+	color: #38A1F3;
+}
+
+.fa-github {
+	color: #444;
+}
+
+@media (max-width:475px) {
+    article {
+        margin: 0 !important;
+    }
+    .post-content {
+        font-size: 75%;
+    }
+
+    main {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    }
+}
+
+@media (max-width: 600px) {
+	header {
+        margin-bottom: 0 !important;
+		grid-template-areas:
+				"me"
+				"nav" !important;
+	}
+    .me {
+        text-align: center;
+        font-size: 1.4em;
+    }
+
+    nav {
+		padding-top: 40px;
+        text-align: center;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-rows: [row] 75px [row] 75px;
+        grid-template-columns: [col] auto;
+        border-bottom: 1px solid rgba(44,44,44,0.2);
+    }
+
+    .navigation a {
+        margin-right: 0 !important;
+        font-size: 1.2em;
+    }
+
+    .post-list {
+        grid-template-columns: [col] 50px;
+		margin-top: 0px !important;
+    }
+
+    .post-list {
+		padding-top: 0;
+    }
+
+    .post-list li:last-child {
+        margin-bottom: 60px;
+    }
+
+    .post {
+        margin-bottom: 20px;
+    }
+
+    .post h2 {
+        text-align: center;
+    }
+    .post p {
+        text-align: center;
+    }
+	footer p {
+		text-align: center;
+	}
+
+	footer .social {
+        margin-top: 20px;
+		text-align: center;
+	}
+
+    footer {
+        display: grid;
+        grid-template-areas:
+                "social"
+                "copyright";
+    }
+	main {
+        border-bottom: 1px solid rgba(44,44,44,0.2);
+	}
+}
+
+main {
+	grid-area: content;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+header {
+	margin: 40px;
+    grid-area: header;
+	display: grid;
+	grid-template-areas: "me nav";
+}
+
+.me {
+	grid-area: me;
+}
+
+.navigation {
+    grid-area: nav;
+    text-align: right;
+}
+
+.me h3 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.4em;
+}
+
+.me a {
+    text-decoration: none;
+    color: #444;
+}
+
+.navigation a {
+    margin-top: 0;
+    margin-right: 25px;
+    text-decoration: none;
+    font-family: Overpass-Mono;
+}
+
+.content {
+    margin-top: 75px;
+}
+
+.post-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.post-list li {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: [col] auto;
+    grid-template-rows: [row] auto [row];
+    text-align: left;
+    margin-left: 0;
+}
+
+.post-list li .date {
+    grid-column: col 1 / span 1;
+    grid-row: row 2;
+    text-color: #555;
+    opacity: .4;
+}
+
+.post-list li .title {
+    grid-column: col 1 / span 1;
+    grid-row: row 1;
+    font-size: 1.4em;
+}
+
+.post-list li .date p {
+    font-size: 1em;
+    margin-top: 0;
+}
+
+.post-list li .title h2 {
+    margin-bottom: 0;
+    font-size: 1.4em;
+}
+
+.post-list a {
+    text-decoration: none;
+    color: #444;
+}
+
+.theme-selector {
+    grid-column: col 4 / span 1;
+    grid-row: row 3;
+}
+
+/* Blog content */
+
+.post-meta {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.post-meta h1 {
+    margin-bottom: 5px;
+    font-size: 2.747em;
+}
+
+.post-meta .date {
+    text-color: #555;
+    opacity: .4;
+}
+
+.post-content {
+    line-height: 1.75em;
+    max-width: 36em;
+    font-size: 1.25em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-content h2 {
+    padding-top: 1.229em;
+    font-size: 125%;
+    margin-bottom: 0;
+}
+
+.post-content h3 {
+    padding-top: 1.1em;
+    font-size: 115%;
+    margin-bottom: 0;
+}
+
+.post-content h4 {
+    font-size: 110%;
+    padding-top: 1em;
+    margin-bottom: 0;
+}
+
+.post-content h5 {
+    font-size: 105%;
+    padding-top: 1em;
+    margin-bottom: 0;
+}
