@@ -8,8 +8,6 @@ tags: strangeloop-2018
 categories: conferences
 ---
 
-## Strangeloop 2018
-
 [Strangeloop 2018](https://www.thestrangeloop.com/) is a conference held every year in St. Louis. It features speakers from academia, the software industry, and even a museum party at the [City Museum](https://www.citymuseum.org/) held the night before the conference starts!
 
 <!--more-->
@@ -26,7 +24,7 @@ It's hard to separate Strangeloop from functional programming. The conference wa
 
 Session types are a way to specify how a program communicates with other processes. Formally, session types are defined by [π-calculus](https://en.wikipedia.org/wiki/%CE%A0-calculus). Practically, session types are implemented using types that define a communication protocol as well as a channel, which serves as a means of communication using this protocol between a client and a server. Session types have the added advantage, in languages like Haskell, of being verified at compile-time. This can help eliminate concurrency bugs like race conditions and deadlocks.
 
-These were mentioned in two talks that I attended: one at the [PWLConf pre-conference](/conferences/pwlconf2018/#a-rehabilitation-of-message-passing-concurrency-https-pwlconf-org-2018-frank-pfenning) and one by Heather Miller about [language support for distributed systems](https://www.thestrangeloop.com/2018/towards-language-support-for-distributed-systems.html).  
+These were mentioned in two talks that I attended: one at the [PWLConf pre-conference](/conferences/pwlconf2018/#a-rehabilitation-of-message-passing-concurrency-https-pwlconf-org-2018-frank-pfenning) and one by Heather Miller about [language support for distributed systems](https://www.thestrangeloop.com/2018/towards-language-support-for-distributed-systems.html).
 
 
 #### Category Theory
@@ -56,7 +54,7 @@ To improve performance, Kavya offered the following suggestions:
   1. Prevent requests from queueing too long, i.e. introduce timeouts
   2. Client-side concurrency control
 
-Adding client-side concurrency control helps control the rate of incoming requests to a system, which helps the server by keeping the queue smaller during times of high load. Adding a timeout is relatively simple, although it can have some detrimental effects. If the queue grows really large and is processed in FIFO (first in first out) order, then the server will be processing requests that are most likely to timeout first. 
+Adding client-side concurrency control helps control the rate of incoming requests to a system, which helps the server by keeping the queue smaller during times of high load. Adding a timeout is relatively simple, although it can have some detrimental effects. If the queue grows really large and is processed in FIFO (first in first out) order, then the server will be processing requests that are most likely to timeout first.
 
 One strategy is to set the queue time as a function of the length of the queue, meaning that for a large queue, an incoming request would receive a short timeout.
 
@@ -92,7 +90,7 @@ Lita proposes that we use tracing tools to get more fine-grained observability.
 
 ##### OpenTracing
 
-The request-response lifecycle becomes a series of "spans," which are essentially work done by individual services, and are composed into a trace. There are products which do this for us, such as Datadog APM, but using them directly can introduce vendor lock-in. Instead, Lita recommended [OpenTracing](http://opentracing.io/), which is a project designed to bring a vendor-neutral interface to tracing. 
+The request-response lifecycle becomes a series of "spans," which are essentially work done by individual services, and are composed into a trace. There are products which do this for us, such as Datadog APM, but using them directly can introduce vendor lock-in. Instead, Lita recommended [OpenTracing](http://opentracing.io/), which is a project designed to bring a vendor-neutral interface to tracing.
 
 ##### Using a sidecar
 
