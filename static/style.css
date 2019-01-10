@@ -12,7 +12,6 @@ article {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
     display: grid;
-    grid-gap: 10px;
     color: #444;
     margin: 40px;
 	display: grid;
@@ -22,8 +21,7 @@ article {
     grid-template-areas:
             "header"
             "content"
-            "footer"
-			"20px";
+            "footer";
 }
 
 footer {
@@ -58,6 +56,7 @@ footer .social a {
 
 @media (max-width: 600px) {
 	header {
+        margin-bottom: 0 !important;
 		grid-template-areas:
 				"me"
 				"nav" !important;
@@ -67,7 +66,7 @@ footer .social a {
         font-size: 1.4em;
     }
 
-    #navigation {
+    nav {
 		padding-top: 40px;
         text-align: center;
         display: grid;
@@ -81,18 +80,14 @@ footer .social a {
         margin-right: 0 !important;
         font-size: 1.2em;
     }
-    
+
     .post-list {
         grid-template-columns: [col] 50px;
 		margin-top: 0px !important;
     }
 
-    .post-list ul {
-		padding-top: 0;	
-    }
-
-    .post-list ul li:last-child {
-        margin-bottom: 70px;
+    .post-list {
+		padding-top: 0;
     }
 
     .post {
@@ -110,6 +105,7 @@ footer .social a {
 	}
 
 	footer .social {
+        margin-top: 20px;
 		text-align: center;
 	}
 
@@ -122,10 +118,6 @@ footer .social a {
 	main {
         border-bottom: 1px solid rgba(44,44,44,0.2);
 	}
-}
-
-.item {
-    color: #444;
 }
 
 main {
@@ -168,17 +160,17 @@ header {
     font-family: Overpass-Mono;
 }
 
-.post-list {
+.content {
     margin-top: 75px;
 }
 
-.post-list ul {
+.post-list {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
 }
 
-.post-list ul li {
+.post-list li {
     display: grid;
     grid-gap: 0px;
     grid-template-columns: [col] auto;
@@ -187,25 +179,25 @@ header {
     margin-left: 0;
 }
 
-.post-list ul li .date {
+.post-list li .date {
     grid-column: col 1 / span 1;
     grid-row: row 2;
     text-color: #555;
     opacity: .4;
 }
 
-.post-list ul li .title {
+.post-list li .title {
     grid-column: col 1 / span 1;
     grid-row: row 1;
     font-size: 1.4em;
 }
 
-.post-list ul li .date p {
+.post-list li .date p {
     font-size: 1em;
     margin-top: 0;
 }
 
-.post-list ul li .title h2 {
+.post-list li .title h2 {
     margin-bottom: 0;
     font-size: 1.4em;
 }
