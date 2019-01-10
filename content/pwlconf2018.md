@@ -1,6 +1,6 @@
 ---
 title: PWLConf 2018 Running Notes
-url: /conferences/pwlconf2018/
+url: /pwlconf2018/
 draft: false
 date: 2018-09-25
 meta: false
