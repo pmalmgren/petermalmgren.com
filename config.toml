@@ -6,7 +6,10 @@ preserveTaxonomyNames = true
 rssLimit = 10
 paginate = 10
 pygmentsCodefences = true
-pygmentsStyle = "native"
+pygmentsUseClasses = true
+
+[pygmentsOptions]
+    linenos = "table"
 
 staticDir = ["static"]
 

@@ -278,3 +278,47 @@ header {
     padding-top: 1em;
     margin-bottom: 0;
 }
+
+code {
+    font-family: Overpass-Mono;
+    font-size: .8em;
+    overflow-x: scroll;
+}
+
+code,
+pre,
+samp {
+  white-space: pre-wrap; /* force long lines to break */
+}
+
+.highlight pre {
+    overflow: auto;
+}
+
+.image-credit img {
+    display:block;
+    margin:auto;
+    width: 75%;
+}
+
+.image-credit p {
+    font-size: .8em;
+    color: #444;
+    opacity: .4;
+    text-align: center;
+    font-variant-ligatures: normal;
+}
+
+span.filename {
+    font-family: Overpass-Mono;
+    font-size: .8em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.fin {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    opacity: 0.4;
+}
