@@ -4,7 +4,7 @@ url: /go-cli-app-testing/
 draft: false
 date: 2019-01-10
 meta: false
-categories: golang, software-development, cli
+categories: golang
 ---
 
 <div class="image-credit">
