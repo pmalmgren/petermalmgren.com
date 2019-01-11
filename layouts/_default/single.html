@@ -6,4 +6,9 @@
     <div class="post-content">
         {{ .Content }}
     </div>
+    <div class="fin">
+        EOF
+    </div>
+
+    {{ template "_internal/disqus.html" . }}
 {{- end }}
