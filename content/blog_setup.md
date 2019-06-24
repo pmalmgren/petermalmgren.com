@@ -17,7 +17,7 @@ I love working on my iPad Pro. It's easy to carry around, relatively powerful, a
 ## Editing Environment
 
 <div class="headline-image">
-<img src="/editing-environment.png" style="width: 25%"/>
+<img src="/editing-environment.png" style="width: 100%; padding-top:40px;"/>
 </div>
 
 I run a live-editing environment on a [DigitalOcean development droplet](https://m.do.co/c/6c6de1f4746c) and use the Blink app to access it and upload files. I started by [provisioning a droplet](https://www.digitalocean.com/docs/droplets/how-to/create/), [installing Hugo](https://gohugo.io/getting-started/quick-start/) and running the following command to get a live-reloading URL with my blog:
