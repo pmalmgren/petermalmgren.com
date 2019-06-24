@@ -66,6 +66,11 @@ footer .social a {
         margin-left: 20px !important;
         margin-right: 20px !important;
     }
+
+    nav {
+        height: 0;
+        display: none !important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -293,6 +298,12 @@ samp {
 
 .highlight pre {
     overflow: auto;
+}
+
+.headline-image img {
+    display:block;
+    margin:auto;
+    padding-bottom: 40px;
 }
 
 .image-credit img {
