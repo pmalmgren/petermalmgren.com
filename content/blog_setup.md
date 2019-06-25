@@ -6,6 +6,7 @@ date: 2019-06-24
 meta: false
 categories: golang
 tags: digitalocean, blink, hugo
+description: Getting a blog up and running using an iPad Pro, DigitalOcean, and Hugo.
 ---
 
 <div class="headline-image">

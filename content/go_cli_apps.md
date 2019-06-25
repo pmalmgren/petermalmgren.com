@@ -5,6 +5,7 @@ draft: false
 date: 2019-01-10
 meta: false
 categories: golang
+description: Integration testing of Go CLI apps, using a Makefile and the Go test runner.
 ---
 
 <div class="image-credit">
