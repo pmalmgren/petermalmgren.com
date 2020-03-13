@@ -4,7 +4,7 @@ url: /go-cli-app-testing/
 draft: false
 date: 2019-01-10
 meta: false
-categories: golang
+categories: Software Development
 description: Integration testing of Go CLI apps, using a Makefile and the Go test runner.
 ---
 

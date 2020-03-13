@@ -4,7 +4,7 @@ url: /ipad-pro-blog-setup/
 draft: false
 date: 2019-06-24
 meta: false
-categories: golang
+categories: Meta
 tags: digitalocean, blink, hugo
 description: Getting a blog up and running using an iPad Pro, DigitalOcean, and Hugo.
 ---

@@ -5,7 +5,7 @@ draft: false
 date: 2018-09-25
 meta: false
 tags: strangeloop-2018
-categories: conferences
+categories: Software Development
 ---
 
 ## PWLConf 2018 Notes

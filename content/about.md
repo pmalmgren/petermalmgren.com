@@ -5,6 +5,7 @@ draft: false
 date: 2018-09-24
 meta: false
 hidden: true
+categories: Meta
 ---
 
 I'm a dad and [software engineer](https://github.com/pmalmgren). I live in the mountains of North Carolina, and currently work as a Product Engineer at [Zapier](https://zapier.com).
