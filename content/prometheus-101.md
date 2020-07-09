@@ -152,9 +152,10 @@ Gauge values, on the other hand, will always match the value of the scraped metr
 
 ### Histogram Metrics
 
-Histogram metrics are ways of grouping metrics into buckets using a measurement, which typically a number. A common use for histogram metrics in the Prometheus Operator is for response latencies from Nginx ingress, which are grouped together into latency buckets which correspond to latency response time in seconds. The buckets are defined in the Prometheus client (used by Prometheus Operator) and are defined as: 
+Histogram metrics are ways of grouping metrics into buckets using a measurement, which is typically a measurement of size or time. A common use for histogram metrics in the Prometheus Operator is for response latencies from Nginx ingress, which are grouped together into latency buckets which correspond to latency response time in seconds. The buckets are defined in the Prometheus client (used by Prometheus Operator) and are defined as: 
 
 ```go
+// units are in seconds
 DefBuckets = []float64{.005, .01, .025, .05, .1, .25, .5, 1, 2.5, 5, 10}
 ```
 
@@ -162,7 +163,7 @@ Prometheus usually exposes histogram metrics with a special metric suffix called
 
 Histogram metrics are also typically exposed alongside two additional metrics which are suffixed with `_count` and `_total`, and correspond to the count of all observations and the sum of all observations.
 
-All histogram metrics also have a special bucket called `+Inf` which corresponds to the number of requests that are less than positive infinity, which is basically the same as the total count of requests.
+All histogram metrics also have a special bucket called `+Inf` which corresponds to the number of requests that are less than positive infinity, which is the same as the total count of requests.
 
 The Prometheus operator exposes latency metrics through the labels `nginx_ingress_controller_response_duration_seconds_bucket`, `nginx_ingress_controller_response_duration_seconds_total`, and `nginx_ingress_controller_response_duration_seconds_count`.
 
@@ -176,10 +177,9 @@ nginx_ingress_controller_response_duration_seconds_bucket{le=".05"}
 
 Operators and functions in Prometheus are basic expressions that use metrics and labels. They are the final piece of the puzzle that we'll need to answer questions like:
 
-- What percentage of requests execute in under 1 second?
 - What percentage of requests return a 500 error code?
-- How many requests am I doing?
-- What is the rate of application errors for the last 5 minutes?
+- What percentage of requests execute in under 1 second?
+- How many requests am I serving?
 
 ### Using Operators
 
@@ -197,7 +197,7 @@ We'll start with this query, which is similar to the one we used above, to get a
 nginx_ingress_controller_response_duration_seconds_count{status=~"5.*", ingress="http-production"}
 ```
 
-This returns a list of instant vectors, which is an integer value for the count of requests with a 500 response. An instant vector represents a snapshot in time, and in this case is the latest count of HTTP 500 responses. 
+This returns a list of instant vectors, which is an integer value for the count of requests with a 500 response. An instant vector represents a snapshot in time, and in this case is the latest count of HTTP 5xx responses. 
 
 _Note: Depending on your setup, you will most likely get a list of numbers for different metric/label combinations. I'm assuming that you're serving traffic out of an ingress with the name `http-production` in these examples._
 
@@ -254,4 +254,5 @@ The next part, which I'll leave as an exercise to you, is to use Prometheus and 
 
 - The percentage of requests served in under 1 second, which is how you'd define latency SLOs (hint: use the histogram buckets)
 - The percentage of requests served without a 5xx error code AND in under 1 second, which is how you'd define a combined error/latency SLO
+
 
