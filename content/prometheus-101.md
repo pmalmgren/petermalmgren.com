@@ -1,7 +1,7 @@
 ---
 title: "PromQL and Prometheus Operator"
 description: Prometheus Basis
-date: 2020-06-18T09:38:38-04:00
+date: 2020-07-08T09:38:38-04:00
 draft: false
 categories: Site Reliability Engineering
 categories_weight: 1
