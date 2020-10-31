@@ -100,6 +100,6 @@ Your application still wouldn't be able to reap zombie processes or adopt orphan
 
 ## tini
 
-If you run your Docker container with `--init`, Docker will automatically start its own init process as PID 1. The problem with using `--init` is that it doesn't automatically pass along signals and doesn't seem to be configurable.
+If you run your Docker container with `--init`, Docker will automatically start its own init process as PID 1. The problem with using `tini` is that container orchestrators, such as Kubernetes, can't start your Docker container with the `--init` flag.
 
 If you want to use `tini`, you'll have to download and install it in your `Dockerfile` and pass along the `-g` option for signal forwarding.
