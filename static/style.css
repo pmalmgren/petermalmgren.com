@@ -284,13 +284,15 @@ header {
 }
 
 code {
-    overflow-x: scroll;
+  overflow-x: scroll;
+  font-size: 1.1em;
 }
 
 code,
 pre,
 samp {
   white-space: pre-wrap; /* force long lines to break */
+  font-size: 1.1em;
 }
 
 .highlight pre {
