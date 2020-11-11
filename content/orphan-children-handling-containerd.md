@@ -13,6 +13,14 @@ Last week I [posted about a program which was behaving strangely](/pid-1-child-p
 
 After cleaning up the code and fixing the bug, I still didn't have any idea what was actually happening to the orphan child process running in Docker after its parent died. Here is a braindump of how I figured this out.
 
+## Edit: I found why the parent wasn't shutting down correctly
+
+I was launching new Python processes with the `multiprocessing` Python module. Part of this module involves registering a cleanup function using the `atexit` handler. In this cleanup function, all running processes are waited on with `.join()`, which makes our parent process sleep indefinitely until the children are done running.
+
+See the [multiprocessing/util.py](https://github.com/python/cpython/blob/33922cb0aa0c81ebff91ab4e938a58dfec2acf19/Lib/multiprocessing/util.py#L362) file for more details.
+
+I'll leave the rest of this post up just in case anyone finds the BPF programs I used interesting.
+
 ## Setup
 
 Here's a minimal Dockerfile and two Python programs I used to investigate this. The parent process handles a `SIGTERM`, passes the signal along to its child, and then calls `sys.exit(0)`. The child process also handles the signal, but doesn't exit.
@@ -268,13 +276,24 @@ Counting signals. Hit Ctrl-C to end.
 @[SIGTERM, 1444823, python]: 1
 ```
 
-## Hypothesis
+## Checking syscalls of the Python process
 
-At this point, here is what I think is happening:
+I forgot to do something obvious above, which was check the syscalls of the Python process when it exits. Here's what that looks like:
 
-1. The parent process runs and forks a child
-2. The parent process receives a `SIGTERM`, propogates it to its children, and calls `exit()`
-3. A copy of the parents signal handler is preserved somewhere, and the process is marked as sleeping
-4. After the second `SIGTERM`, `runc` will decide to `SIGKILL` any remaining processes in the namespace, and allow the parent to exit normally
+```bash
+$ sudo syscount-bpfcc -p 1491744
+Tracing syscalls, printing top 10... Ctrl+C to quit.
+^C[13:01:31]
+SYSCALL                   COUNT
+write                         9
+select                        8
+wait4                         2
+getpid                        2
+kill                          1
+```
 
-Even though I haven't figured out why or how the process remains alive after it calls `exit()`, at least now I know that `runc` will send a `SIGKILL` to the child process. I'll investigate more next week!
+`wait4` is what processes use to wait on children. And after some quick investigation, I realized that the `multiprocessing` module registers an `atexit` handler which will wait indefinitely for children to finish. This is why our process is showing up as sleeping.
+
+## I was looking in the wrong rabbit hole
+
+I probably should've checked the behavior of `sys.exit(0)` and `multiprocessing` first before assuming there was something wrong with `runc` or `containerd`!
