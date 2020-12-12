@@ -24,7 +24,7 @@ I'll leave the rest of this post up just in case anyone finds the BPF programs I
 
 Here's a minimal Dockerfile and two Python programs I used to investigate this. The parent process handles a `SIGTERM`, passes the signal along to its child, and then calls `sys.exit(0)`. The child process also handles the signal, but doesn't exit.
 
-You can view all of the code needed to reproduce this problem here: https://gist.github.com/pmalmgren/7bae3262047b32416062d9843210c4b2
+You can view all of the code needed to reproduce this problem [here](https://gist.github.com/pmalmgren/7bae3262047b32416062d9843210c4b2).
 
 ## Initial Investigation
 
@@ -60,7 +60,7 @@ systemd(1)───containerd(1171)───containerd-shim(296942)─┬─pyth
 
 To see what processes are receiving which signals, I used the [signals.bt](https://github.com/brendangregg/bpf-perf-tools-book/blob/master/originals/Ch13_Applications/signals.bt) script introduced in [BPF Performance Tools](http://www.brendangregg.com/blog/2019-07-15/bpf-performance-tools-book.html). I made a small modification to allow filtering based on the process name:
 
-```bpf
+```bash
 tracepoint:signal:signal_generate
 {
 	if (str($1) == "0" || args->comm == str($1)) {

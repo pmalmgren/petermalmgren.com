@@ -312,6 +312,7 @@ header {
 
 .chroma {
   padding: 10px 0 10px 10px;
+  width: 80vw;
 }
 
 code, pre, samp {
