@@ -1,9 +1,9 @@
 ---
 title: "PID 1 Signal Handling in Docker"
+description: "If your container process runs with PID 1, surprising things can happen!"
 date: 2020-10-19T07:46:19-04:00
 draft: false
 categories: Site Reliability Engineering
-categories_weight: 1
 ---
 
 ## tl;dr
@@ -86,7 +86,7 @@ The first way to get around this issue is to install custom signal handlers for 
 
 For the application I gave as an example above, using `exec` means doing this:
 
-```
+```bash
 #!/bin/sh
 
 exec ./main.py

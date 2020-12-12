@@ -4,7 +4,6 @@ description: What happens to the child of PID 1 when PID 1 dies?
 date: 2020-10-31T08:30:55-04:00
 draft: false
 categories: Site Reliability Engineering
-categories_weight: 1
 ---
 ## Background
 

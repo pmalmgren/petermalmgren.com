@@ -45,7 +45,7 @@ Buildroot is a really neat tool which takes care of compiling a kernel, building
 
 I ended up using the following set of commands to get a minimal working system. Reference the [Buildroot user manual](https://buildroot.org/downloads/manual/manual.html#makeuser-syntax) to find out more details.
 
-```
+```bash
 # download the latest release
 $ curl https://git.busybox.net/buildroot/snapshot/buildroot-2020.11.tar.gz
 # tar zxvf buildroot-2020.11.tar.gz
@@ -57,7 +57,7 @@ $ make menuconfig
 
 Using `make qemu_x86_def_config` specifies a bunch of options for you, but I still enabled a few extras in `make menuconfig`. The most important were adding some packages (`zsh`, `vim`) and installying rootfs overlays. Overlays sit on top of the filesystem and let you override certain files. I used them to configure networking and DNS. Here's what they look like:
 
-```
+```bash
 $ tree rootfs_overlay    
 rootfs_overlay
 └── etc
@@ -70,8 +70,8 @@ rootfs_overlay
 
 Here's the network interfaces file, these values are explained below. 
 
-<span class="filename">/etc/network/interfaces</span>
-```
+```bash
+$ cat rootfs_overlay/etc/network/interfaces
 auto lo
 iface lo inet loopback
 auto eth0
@@ -79,10 +79,7 @@ iface eth0 inet static
 address 10.0.2.14
 netmask 255.255.255.0
 gateway 10.0.2.2
-```
-
-<span class="filename">/etc/resolv.conf</span>
-```
+$ cat rootfs_overlay/etc/resolv.conf
 nameserver 10.0.2.3
 ```
 
@@ -107,15 +104,15 @@ Using `console=ttys0` lets you see early boot logs.
 
 The hardest thing to figure out for me when working with QEMU was how to do networking. There are a lot of "magic" values which I will explain below.
 
-QEMU provides each guest with an ethernet card and a network by default in something called user mode. The tricky thing is figuring out which IP, gatway, and DNS servers to use for internet connectivitiy. QEMU provides a gateway on 10.0.2.2 and a DNS server on 10.0.2.3.
+QEMU provides each guest with an ethernet card and a network by default in something called user mode. The tricky thing is figuring out which IP, gateway, and DNS servers to use for internet connectivitiy. QEMU provides a gateway on 10.0.2.2 and a DNS server on 10.0.2.3.
 
 Once you boot your system, you can get networking with the following commands:
 
-```
-# ip addr set eth0 up
-# ip addr add 10.0.2.14/24 dev eth0
-# ip route add default via 10.0.2.2 
-# echo "nameserver 10.0.2.3" > /etc/resolv.conf
+```bash
+$ ip addr set eth0 up
+$ ip addr add 10.0.2.14/24 dev eth0
+$ ip route add default via 10.0.2.2 
+$ echo "nameserver 10.0.2.3" > /etc/resolv.conf
 ```
 
 This allows network access from the *guest to the host* but not vice versa.

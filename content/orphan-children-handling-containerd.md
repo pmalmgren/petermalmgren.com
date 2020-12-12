@@ -4,7 +4,6 @@ description: "What happens if a processes parent dies in a Docker container?"
 date: 2020-11-11T07:32:34-05:00
 draft: false
 categories: Observability
-categories_weight: 1
 ---
 
 ## Background
