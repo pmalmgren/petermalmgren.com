@@ -327,6 +327,10 @@ code, pre, samp {
   white-space: pre-wrap;
 }
 
+code {
+  font-size: 1.2em;
+}
+
 .headline-image img {
   display:block;
   margin:auto;

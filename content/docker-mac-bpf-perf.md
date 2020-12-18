@@ -11,19 +11,38 @@ This week I noticed a big slowdown in my development environment which runs in [
 
 Docker on a mac is a Linux VM, and because Linux supports tools that I'm already familiar with such as [perf](https://perf.wiki.kernel.org/index.php/Main_Page) and [eBPF](http://www.brendangregg.com/ebpf.html), I decided to use those from inside the Linux VM to see what the issue was.
 
+## How to access the VM that runs Docker for Mac
+
+I used the Docker image [justincormack/nsenter1](https://github.com/justincormack/nsenter1) which starts a shell on the host system:
+
+```bash
+$ docker run -it --rm --privileged --pid=host justincormack/nsenter1
+```
+
+This gives you full access to the Docker VM. You can also just use `--pid=host` if you want to start any other Docker container to inspect running processes.
+
 ## Basic observability
 
-Before diving too deeply into `perf` or `eBPF` to look for problems, it helps to know where to start. Netflix has an excellent post called [Linux Performance Analysis in 60,000 Milliseconds](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55) which recommends some good tools. I recommend that you install these inside of your Docker containers to help with performance analysis.
+Before diving too deeply into `perf` or `eBPF` to look for performance problems, it helps to know where to start. Netflix has an excellent post called [Linux Performance Analysis in 60,000 Milliseconds](https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55) which recommends some good tools. I recommend that you install these inside of your Docker containers to help with performance analysis. In my case, running `pidstat` and `mpstat` was sufficient to discover the cause of my slow builds.
 
 One helpful Docker-specific tool is `docker stats`, which is a `top`-like tool for monitoring the status of running Docker containers. It displays each container and its CPU usage, memory usage, and other resource information. It runs from the host, so you don't need to do anything other than have Docker installed.
 
-Another helpful tool is the `/sys/fs/cgroups` directory. Docker containers can be throttled by cgroup CPU limits, and when this happens a throttle counter will be incremented in `/sys/fs/cgroup/cpu,cpuacct/docker/{container-hash}/cpu.stat`. This is a good way to see if performance issues are due to container issues (cgroup throttling) or if they're due to host issues such as CPU saturation.
+Another helpful tool is the `/sys/fs/cgroups` directory. Docker containers can be throttled by cgroup CPU limits, and when this happens a throttle counter will be incremented in `/sys/fs/cgroup/cpu,cpuacct/docker/{container-hash}/cpu.stat`. This is a good way to see if performance issues are due to container issues (cgroup throttling) or if they're due to host issues such as CPU saturation. This directory is accessible from within your VM, so you'll want to run this command to start a shell and inspect it:
+
+```bash
+host$ docker run -it --rm --privileged --pid=host justincormack/nsenter1
+container# cat /sys/fs/cgroup/cpu,cpuacct/docker/.../cpu.stat
+```
 
 ## perf from inside the container
 
-`perf` is a really powerful tool that provides visibility into a lot of different events on a Linux system. Most of its functionality require root access, i.e. privileged containers, in order to work. This means that to get it running inside of Docker, you'll need to pass the `--privileged` flag OR find a way to add `CAP_PERFMON` to your container which seems to be [temporarily disabled](https://github.com/moby/moby/pull/41563) by Docker.
+`perf` is a really powerful tool that provides visibility into a lot of different events on a Linux system. Most of its functionality require root access, i.e. [privileged containers](https://docs.docker.com/engine/reference/commandline/run/#full-container-capabilities---privileged), in order to work. This means that to get it running inside of Docker, you'll need to pass the `--privileged` flag OR find a way to add `CAP_PERFMON` to your container which seems to be [temporarily disabled](https://github.com/moby/moby/pull/41563) by Docker.
 
-You'll also need to install `perf` in your container. This involves either manually running `apt-get install perf` immediately after spawning a shell or adding it to your `Dockerfile`. `perf record` dumps data to disk, so I also recommend mounting a volume to persist data across container runs and to do analysis on your host machine after profiling is done.
+_Please note that privileged containers are NOT recommended in production, so use this flag with caution!_
+
+You'll also need to install `perf` in your container. This involves either manually running `apt-get install linux-perf` immediately after spawning a shell or adding it to your `Dockerfile`. 
+
+The commonly used `perf record` command dumps data to disk, so I also recommend mounting a volume to persist data across container runs and to do analysis on your host machine after profiling is done.
 
 I also installed `tmux` so I could run the command causing the problem in one pane, and run `perf record` in the other pane. An alternative would be to run `docker exec` into your running container, which would work well for something like a server.
 
@@ -35,6 +54,8 @@ container# apt-get install perf
 container# cd /perf_data
 container# perf record -F 99 ...
 ```
+
+I recommend checking out [CPU Flame Graphs](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html), a blog post by Brendan Gregg, which outlines how to use perf output to make flamegraphs. These make it really easy to visualize where your program is spending lots of time.
 
 ## BCC tools and bpftrace
 
