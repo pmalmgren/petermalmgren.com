@@ -321,6 +321,8 @@ header {
   padding: 10px 0 10px 10px;
   width: 80vw;
   max-width: 1000px;
+  overflow-x: hidden;
+  overflow: scroll;
 }
 
 code, pre, samp {
@@ -329,6 +331,18 @@ code, pre, samp {
 
 code {
   font-size: 1.2em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+pre > code {
+  overflow-wrap: normal;
+  word-wrap: normal;
+  -ms-word-break: normal;
+  word-break: normal;
 }
 
 .headline-image img {

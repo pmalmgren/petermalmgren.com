@@ -4,7 +4,6 @@ description: Prometheus Basics
 date: 2020-07-08T09:38:38-04:00
 draft: false
 categories: Site Reliability Engineering
-categories_weight: 1
 ---
 
 A couple of weeks ago I started working on defining application SLOs so that teams could take ownership of their services.
@@ -72,7 +71,7 @@ metric_name{label="label"} 4932
 metric_name{label="label2"} 90000
 ```
 
-Once you have Prometheus up and running, you configure it to scrape a specified endpoint. Configuring Prometheus is outside the scope of this article, but if you're using [Prometheus Operator](https://github.com/coreos/prometheus-operator) you can configure your cluster Prometheus instance to scrape custom or service specific metrics with a [ServiceMonitor] (https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md).
+Once you have Prometheus up and running, you configure it to scrape a specified endpoint. Configuring Prometheus is outside the scope of this article, but if you're using [Prometheus Operator](https://github.com/coreos/prometheus-operator) you can configure your cluster Prometheus instance to scrape custom or service specific metrics with a [ServiceMonitor](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md).
 
 ## PromQL Metrics
 
@@ -99,8 +98,16 @@ nginx_ingress_controller_response_duration_seconds_count{status="301", environme
 The data type returned for these queries is a list of instant vectors, which correspond to a metric, a set of labels, and the latest known value for that metric label combination. They look something like this:
 
 ```yaml
-nginx_ingress_controller_response_duration_seconds_count{status="301", environment="production", ip="10.0.0.1"} 23
-nginx_ingress_controller_response_duration_seconds_count{status="301", environment="production", ip="10.0.0.2"} 100
+nginx_ingress_controller_response_duration_seconds_count{
+  status="301",
+  environment="production", 
+  ip="10.0.0.1"
+} 23
+nginx_ingress_controller_response_duration_seconds_count{
+  status="301", 
+  environment="production", 
+  ip="10.0.0.2"
+} 100
 ```
 
 
@@ -118,7 +125,11 @@ nginx_ingress_controller_response_duration_seconds_count{status="500", environme
 The data returned from a range vector query is very similar to an instant vector, except for instead of a single number like we get with an instant vector, a range vector will have a list of observations and timestamps for each metric/label combination.
 
 ```yaml
-nginx_ingress_controller_response_duration_seconds_count{status="301", environment="production", ip="10.0.0.1"}
+nginx_ingress_controller_response_duration_seconds_count{
+  status="301", 
+  environment="production", 
+  ip="10.0.0.1"
+}
 5 @1593196346.226
 5 @1593196376.226
 6 @1593196406.226
@@ -129,7 +140,11 @@ nginx_ingress_controller_response_duration_seconds_count{status="301", environme
 8 @1593196556.226
 80 @1593196586.226
 80 @1593196616.226
-nginx_ingress_controller_response_duration_seconds_count{status="301", environment="production", ip="10.0.0.2"}
+nginx_ingress_controller_response_duration_seconds_count{
+  status="301",
+  environment="production", 
+  ip="10.0.0.2"
+}
 5 @1593196346.226
 5 @1593196376.226
 5 @1593196406.226
