@@ -1,7 +1,7 @@
 ---
 title: "I'm joining the Recurse Center!"
-description: I'll be joining the Spring 2 Batch starting March 29th
-date: 2021-03-23T12:14:05-04:00
+description: I'll be joining the Spring 2 batch starting March 29th
+date: 2021-03-24T00:00:05-04:00
 categories: Recurse Center 2021
 draft: false
 ---
@@ -21,11 +21,11 @@ I'm looking forward to spending lots of time on projects that interest me. Here 
 - Go through [The Elements of Computing Systems](https://mitpress.mit.edu/books/elements-computing-systems) and build a computer from scratch
 - Work on a friendlier web interface for Prometheus, I've always struggled with visualizing how different Prometheus expressions fit together to form a query
 - Write a TCP stack
-- Improve my blog, and write more
+- Improve my blog
 - Give more presentations (they have a time each Friday where you can present for 5 minutes!)
-- Learn about security, specifically heap overflows
+- Learn about security, specifically heap overflows and wireless security
+- Maybe learn about operating systems?
 - Help newer programmers level up
-- Maybe learn about operating systems??
 
 ## Why now?
 
