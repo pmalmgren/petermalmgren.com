@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html>
-    {{- partial "head.html" . -}}
-    <body>
-		<article>
-      {{- partial "header.html" . -}}
-		<main>
-        <div class="content">
-            <ul class="post-list">
-            {{ range .Pages }}
-                <li class="post">
-                    <div class="date">
-                        <p>{{ .Date.Format "Monday, January 2 2006" }}</p>
-                    </div>
-                    <div class="title">
-                        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-                        <p><em>{{ .Description }}</em></p>
-                    </div>
-                </li>
-            {{ end }}
-            </ul>
-		</div>
-		</main>
-        {{- partial "footer.html" . -}}
-		</article>
-    </body>
+  {{- partial "head.html" . -}}
+  <body>
+  <article>
+    {{- partial "header.html" . -}}
+  <main>
+    <div class="intro">
+      <div class="text">
+        <h2>
+        Hi, I'm Peter.
+        </h2>
+        <p>
+        I'm a software engineer and writer. This is my blog -- a collection of posts, thoughts, and reflections that I've written over the years.
+        </p>
+      </div>
+      <div class="photo">
+        <img src="/me.png" style="width: 250px" alt="A picture of Peter Malmgren" />
+      </div>
+    </div>
+    <div class="content">
+      <div class="post-header">
+        <h2>Latest Posts</h2>
+      </div>
+      <ul class="post-list">
+      {{ range first 5 .Pages }}
+        <li class="post">
+          <a href="{{ .Permalink }}">
+            <div class="title">
+              <h3>{{ .Title }}</h3>
+            </div>
+            <div class="date">
+              <p>{{ .Date.Format "Jan 02 2006" }}</p>
+            </div>
+          </a>
+        </li>
+      {{ end }}
+      </ul>
+      {{ range $taxonomyname, $posts := .Site.Taxonomies.categories }}
+      <div class="post-header">
+        <h2>{{ humanize $taxonomyname }}</h2>
+      </div>
+      <ul class="post-list">
+      {{ range first 5 $posts }}
+        <li class="post">
+          <a href="{{ .Permalink }}">
+            <div class="title">
+              <h3>{{ .Title }}</h3>
+            </div>
+            <div class="date">
+              <p>{{ .Date.Format "Jan 02 2006" }}</p>
+            </div>
+          </a>
+        </li>
+      {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+  </main>
+    {{- partial "footer.html" . -}}
+  </article>
+  </body>
 </html>

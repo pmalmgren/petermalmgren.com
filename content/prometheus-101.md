@@ -3,7 +3,7 @@ title: "PromQL and Prometheus Operator"
 description: Prometheus Basics
 date: 2020-07-08T09:38:38-04:00
 draft: false
-categories: Site Reliability Engineering
+categories: Software Development
 ---
 
 A couple of weeks ago I started working on defining application SLOs so that teams could take ownership of their services.

@@ -61,6 +61,15 @@ footer .social a {
 }
 
 @media (max-width:475px) {
+  .intro {
+    display: block !important;
+  }
+
+  .intro .photo {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
   article {
     margin: 0 !important;
     padding: 0 !important;
@@ -69,14 +78,14 @@ footer .social a {
   .me {
     font-size: 1.4em !important;
   }
-  h1 {
-    font-size: 1.7em !important;
-  }
   h2 {
-    font-size: 1.4em !important;
+    font-size: 1.2em !important;
   }
   .post-content {
     font-size: 75%;
+  }
+  .post-header {
+    padding-top: 0 !important;
   }
   main {
     margin-left: 20px !important;
@@ -167,12 +176,15 @@ footer .social a {
 
 main {
 	grid-area: content;
-	margin-left: 40px;
-	margin-right: 40px;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 header {
-	margin: 40px;
+	margin-left: 10%;
+	margin-right: 10%;
+  margin-top: 40px;
+  padding-bottom: 20px;
   grid-area: header;
 	display: grid;
 	grid-template-areas: "me nav";
@@ -206,7 +218,7 @@ header {
 }
 
 .content {
-  margin-top: 75px;
+  margin-top: 10px;
 }
 
 .post-list {
@@ -222,30 +234,35 @@ header {
   grid-template-rows: [row] auto [row];
   text-align: left;
   margin-left: 0;
+  font-family: monospace;
 }
 
-.post-list li .date {
-    grid-column: col 1 / span 1;
-    grid-row: row 2;
-    color: #555;
+.post-list li a .date {
+    grid-column: col 1 / span 2;
+    grid-row: row 1;
+    color: #333;
     opacity: .4;
     margin-top: .2em;
 }
 
-.post-list li .title {
-    grid-column: col 1 / span 1;
+.post-list li a .date p {
+  text-align: left;
+}
+
+.post-list li a .title {
+    grid-column: col 2 / span 2;
     grid-row: row 1;
-    font-size: 1.4em;
+    font-size: 1.3em;
 }
 
 .post-list li .date p {
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 0;
 }
 
-.post-list li .title h2 {
+.post-list li .title h3 {
     margin-bottom: 0;
-    font-size: 1.4em;
+    font-size: 1.1em;
 }
 
 .post-list li .title p {
@@ -259,6 +276,36 @@ header {
     color: #444;
 }
 
+.intro {
+  padding-top: 40px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: [col] auto [col];
+  grid-template-rows: [row] auto [row];
+}
+
+.intro .text {
+  grid-column: col 1 / span 1;
+  grid-row: row 1;
+}
+
+.intro .photo {
+  grid-column: col 2 / span 1;
+  grid-row: row 1;
+}
+
+.intro .photo img {
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.post-header {
+  padding: 0;
+  padding-top: 20px;
+  margin: 0;
+  border-bottom: 3px solid black;
+}
+
 .theme-selector {
     grid-column: col 4 / span 1;
     grid-row: row 3;
@@ -269,6 +316,7 @@ header {
 .post-meta {
     text-align: center;
     margin-bottom: 40px;
+    font-family: monospace;
 }
 
 .post-meta h1 {
@@ -279,11 +327,12 @@ header {
 .post-meta .date {
     text-color: #555;
     opacity: .4;
+    font-size: 1.2em;
 }
 
 .post-content {
     line-height: 1.75em;
-    font-size: 1.1em;
+    font-size: 1.0em;
     margin-left: auto;
     margin-right: auto;
     max-width: 1000px;
@@ -291,7 +340,7 @@ header {
 
 .post-content h2 {
     padding-top: .8em;
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin-bottom: 0;
 }
 

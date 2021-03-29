@@ -2,6 +2,7 @@
 title: "Running eBPF and Perf in Docker for Mac"
 description: How to spy on your macOS Docker Containers
 date: 2020-12-17T16:26:17-05:00
+categories: Linux
 draft: false
 ---
 

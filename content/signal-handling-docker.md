@@ -3,7 +3,7 @@ title: "PID 1 Signal Handling in Docker"
 description: "If your container process runs with PID 1, surprising things can happen!"
 date: 2020-10-19T07:46:19-04:00
 draft: false
-categories: Site Reliability Engineering
+categories: Linux
 ---
 
 ## tl;dr

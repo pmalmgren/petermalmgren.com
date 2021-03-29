@@ -5,7 +5,7 @@ draft: false
 date: 2018-09-24
 meta: false
 hidden: true
-categories: Meta
+categories: Personal
 ---
 
 ## About this site

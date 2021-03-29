@@ -2,7 +2,7 @@
 title: "QEMU + Buildroot"
 description: Using QEMU and Buildroot to make tiny virtual machines
 date: 2020-12-03T12:15:32-05:00
-categories: Linux Kernel
+categories: Linux
 draft: false
 ---
 

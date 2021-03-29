@@ -5,7 +5,7 @@ draft: false
 date: 2018-10-04
 meta: false
 tags: strangeloop-2018
-categories: Software Development
+categories: Conferences
 ---
 
 [Strangeloop 2018](https://www.thestrangeloop.com/) is a conference held every year in St. Louis. It features speakers from academia, the software industry, and even a museum party at the [City Museum](https://www.citymuseum.org/) held the night before the conference starts!
