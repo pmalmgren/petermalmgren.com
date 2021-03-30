@@ -70,13 +70,14 @@ footer .social a {
     padding-bottom: 20px;
   }
 
+  .me {
+    font-size: 1.0em !important;
+  }
+
   article {
     margin: 0 !important;
     padding: 0 !important;
     width: 100%;
-  }
-  .me {
-    font-size: 1.4em !important;
   }
   h2 {
     font-size: 1.2em !important;
@@ -91,18 +92,28 @@ footer .social a {
     margin-left: 20px !important;
     margin-right: 20px !important;
   }
-  nav {
-    height: 0;
-    display: none !important;
+}
+
+@media (max-width: 750px) {
+  .intro {
+    display: block !important;
   }
+
+  .intro .photo {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
 }
 
 @media (max-width: 600px) {
-	header {
-    margin-bottom: 0 !important;
-    grid-template-areas:
-        "me"
-        "nav" !important;
+  .intro {
+    display: block !important;
+  }
+
+  .intro .photo {
+    text-align: center;
+    padding-bottom: 20px;
   }
 
   article {
@@ -112,23 +123,19 @@ footer .social a {
   }
 
   .me {
-    text-align: center;
-    font-size: 1.4em;
+    font-size: .75em;
   }
 
   nav {
-    padding-top: 40px;
-    text-align: center;
+    padding-top: 0px;
+    text-align: right;
     display: grid;
     grid-gap: 20px;
-    grid-template-rows: [row] 75px [row] 75px;
     grid-template-columns: [col] auto;
-    border-bottom: 1px solid rgba(44,44,44,0.2);
   }
 
   .navigation a {
-    margin-right: 0 !important;
-    font-size: 1.2em;
+    font-size: 1.0em;
   }
 
   .post-list {
@@ -198,6 +205,7 @@ header {
 .navigation {
   grid-area: nav;
   text-align: right;
+  padding-top: 8px;
 }
 
 .me h3 {
