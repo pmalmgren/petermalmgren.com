@@ -3,6 +3,7 @@ title: "Recurse Center Day 2"
 description: Learning about Continuations
 date: 2021-03-30T07:20:01-04:00
 draft: false
+categories: Recurse Center 2021
 ---
 
 ## What is a continuation?
@@ -79,7 +80,7 @@ Here `call/cc` passes in `my-continuation` as the first argument to the function
 
 When we looked at the `call/cc` with explicit continuations, we saw that `call/cc` captures the continuation, or code which is one level above itself, and passes that into the function that it takes as an argument.
 
-One use for capturting the continuation is the ability to break out of deeply nested expressions, i.e. recursive function calls, without having to return from each one. Consider the function `divide-by-each`, which takes a list of numbers and a single number. `divide-by-each` constructs a new list where the provided argument is divided by each element in the list.
+One use for capturing the continuation is the ability to break out of deeply nested expressions, i.e. recursive function calls, without having to return from each one. Consider the function `divide-by-each`, which takes a list of numbers and a single number. `divide-by-each` constructs a new list where the provided argument is divided by each element in the list.
 
 Let's write the version without `call/cc`.
 
