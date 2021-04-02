@@ -1,7 +1,7 @@
 ---
 title: "Day 5: More macros"
 description: Implementing a for..in loop with a macro and understanding exactly how it works
-date: 2021-04-01T07:20:01-04:00
+date: 2021-04-02T07:20:01-04:00
 draft: false
 categories: Recurse Center 2021
 ---
