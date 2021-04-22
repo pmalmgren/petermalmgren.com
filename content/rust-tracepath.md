@@ -297,7 +297,7 @@ fn recv_hop_cmsg(sock: &UdpSocket) -> Result<Box<HopResult>, Box<nix::Error>> {
         };
     }
 
-    return Ok(hop_result);
+    Ok(hop_result)
 }
 ```
 
