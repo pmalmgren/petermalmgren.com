@@ -41,7 +41,7 @@
         <h2>{{ humanize $taxonomyname }}</h2>
       </div>
       <ul class="post-list">
-      {{ range first 5 $posts }}
+      {{ range $posts }}
         <li class="post">
           <a href="{{ .Permalink }}">
             <div class="title">
