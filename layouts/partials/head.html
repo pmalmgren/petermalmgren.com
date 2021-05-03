@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
      <base href="/">
-    <title>Peter Malmgren | {{ .Title }} </title>
+    <title>{{ .Title }} - Peter Malmgren</title>
     <link rel="canonical" href="{{ .Permalink }}">
     {{ range .AlternativeOutputFormats -}}
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
@@ -11,6 +11,9 @@
     <meta name="description" content="{{ .Description }}"/>
     <meta name="robots" content="index" />
 
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,300&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/syntax.css">
     {{ if .Site.IsServer }}
