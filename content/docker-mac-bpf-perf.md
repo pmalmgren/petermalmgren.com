@@ -12,6 +12,14 @@ This week I noticed a big slowdown in my development environment which runs in [
 
 Docker on a mac is a Linux VM, and because Linux supports tools that I'm already familiar with such as [perf](https://perf.wiki.kernel.org/index.php/Main_Page) and [eBPF](http://www.brendangregg.com/ebpf.html), I decided to use those from inside the Linux VM to see what the issue was.
 
+## Update
+
+### 2021-05-03
+
+[Dominic White](https://twitter.com/singe/status/1389224943435620360?s=20) pointed out that Docker publishes their kernel sources in an [official Docker image](https://hub.docker.com/r/docker/for-desktop-kernel/tags?page=1&ordering=last_updated) for certain Docker Desktop releases.
+
+Instead of downloading the sources manually, you can use one of these official Docker images instead. Check out Dominic's [ebpf-docker-for-mac GitHub repository](https://github.com/singe/ebpf-docker-for-mac) for an easier way to do this than the one I described below. Thanks Dominic!
+
 ## How to access the VM that runs Docker for Mac
 
 I used the Docker image [justincormack/nsenter1](https://github.com/justincormack/nsenter1) which starts a shell on the host system:
