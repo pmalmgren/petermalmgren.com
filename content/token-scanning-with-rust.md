@@ -8,7 +8,7 @@ draft: false
 
 ## What is a token scanner?
 
-A token scanner takes a character stream and turns it into a stream of tokens, which are basically valid characters or character combinations for a given programming language.
+A token scanner takes a character stream and turns it into a stream of tokens, which are valid characters or character combinations for a given programming language.
 
 I've been going through [Crafting Interpreters](https://craftinginterpreters.com/) course using Rust instead of Java. Part of the course is implementing a token scanner for the [Lox language](https://craftinginterpreters.com/the-lox-language.html). 
 
@@ -230,7 +230,7 @@ Here's how we can use `take_while` to consume strings from the character stream:
 
 The only issue here is that if we reach the end of the file or a newline, we don't actually want the token generator to produce a `StringLiteral` - we'd want some kind of syntax error or invalid token instead.
 
-I solved this issue by keeping track of the last character matched. If it is `"`, then we know the string was terminated properly, otherwise can return an error:
+I solved this issue by keeping track of the last character matched. If it is `"`, then we know the string was terminated properly, otherwise we know that the string wasn't terminated properly and can produce an invalid token:
 
 ```rust
 '"' => {
@@ -330,7 +330,7 @@ Here are some things left to make this a complete token parser:
 
 - Add number parsing
 - Spaces and newline characters are counted as `Token::Invalid`, they should either be discarded or tokenized
-- Associate line numbers and column numbers with tokens
+- Line numbers and column numbers should be associated with tokens
 - The token parser should accept files or multi-line input
 - Tests
 
