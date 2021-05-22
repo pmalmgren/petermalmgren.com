@@ -40,7 +40,7 @@ I have been learning a lot about networking in this batch. I wrote a DNS client 
 
 ### ELF Executables & Debugging
 
-Last year I started to implement an [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) parser in Rust. I want to finish learning more about how executable files are constructed and run in Linux. Here are the specific things I want to implement:
+Last year I started to implement an [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) parser in Rust. I want to finish learning more about how executable files are constructed and run in Linux. Here are the specific things I want to learn about and do:
 
 - Work more on ELF parsing, with the goal of parsing at least the headers of an ELF file
 - Implement a basic debugger in Rust, using `ptrace` and this [blog post](https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1/)
@@ -48,7 +48,7 @@ Last year I started to implement an [ELF](https://en.wikipedia.org/wiki/Executab
 
 ### Linux system administration
 
-Even though I am pretty knowledgeable of the Linux command line, there are some things I want to learn about more. These are:
+Even though I am pretty knowledgeable of the Linux command line, there are some things I want to explore further. These are:
 
 - Task automation through cron, maybe writing my own automated home directory backup system
 - Learning more about bash through [Advanced Bash-Scripting](https://tldp.org/LDP/abs/abs-guide.pdf)
@@ -67,7 +67,7 @@ The most enjoyable projects in my career have been working on performance issues
 I have two outstanding projects I want to wrap up. These are:
 
 - A filewatch/livereload server written in Rust, this is about halfway done, but I'd like to add support for configuration and pipelines
-- Completing a parser and understanding how algorithms to handle precedence and associativity with [recursive descent parsing](https://eli.thegreenplace.net/2010/01/02/top-down-operator-precedence-parsing)
+- Completing a parser and understanding how to handle precedence and associativity with [recursive descent parsing](https://eli.thegreenplace.net/2010/01/02/top-down-operator-precedence-parsing)
 
 ## Non-goals
 
