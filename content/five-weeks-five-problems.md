@@ -2,6 +2,7 @@
 title: "Five problems in five weeks"
 description: The next 5 things I want to work on at the Recurse Center
 date: 2021-05-22T08:16:23-04:00
+categories: Recurse Center 2021
 draft: false
 ---
 
