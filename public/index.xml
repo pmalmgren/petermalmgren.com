@@ -1,51 +1,117 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Peter Malmgren</title>
+    <title>Home on Peter Malmgren</title>
     <link>https://petermalmgren.com/</link>
-    <description>Recent content on Peter Malmgren</description>
+    <description>Recent content in Home on Peter Malmgren</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Oct 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://petermalmgren.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Jun 2021 08:00:00 -0400</lastBuildDate><atom:link href="https://petermalmgren.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Strangeloop 2018</title>
-      <link>https://petermalmgren.com/conferences/strangeloop2018/</link>
-      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Implementing a calculator parser in Rust</title>
+      <link>https://petermalmgren.com/three-rust-parsers/</link>
+      <pubDate>Tue, 01 Jun 2021 08:00:00 -0400</pubDate>
       
-      <guid>https://petermalmgren.com/conferences/strangeloop2018/</guid>
-      <description>&lt;h2 id=&#34;strangeloop-2018&#34;&gt;Strangeloop 2018&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.thestrangeloop.com/&#34;&gt;Strangeloop 2018&lt;/a&gt; is a conference held every year in St. Louis. It features speakers from academia, the software industry, and even a museum party at the &lt;a href=&#34;https://www.citymuseum.org/&#34;&gt;City Museum&lt;/a&gt; held the night before the conference starts!&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://petermalmgren.com/three-rust-parsers/</guid>
+      <description>Motivation Parsing is something that I have really struggled with over the past few weeks. And because I&amp;rsquo;ve been struggling with it, I&amp;rsquo;ve also been avoiding working on it.
+For these reasons, it has been hard for me to get up the motivation to work on and understand how parsing algorithms work. But this week I sat through my discomfort long enough to finally understand some of the algorithms and techniques for building a parser.</description>
     </item>
     
     <item>
-      <title>PWLConf 2018 Running Notes</title>
-      <link>https://petermalmgren.com/conferences/pwlconf2018/</link>
-      <pubDate>Tue, 25 Sep 2018 00:00:00 +0000</pubDate>
+      <title>Five problems in five weeks</title>
+      <link>https://petermalmgren.com/five-weeks-five-problems/</link>
+      <pubDate>Sat, 22 May 2021 08:16:23 -0400</pubDate>
       
-      <guid>https://petermalmgren.com/conferences/pwlconf2018/</guid>
-      <description>&lt;h2 id=&#34;pwlconf-2018-notes&#34;&gt;PWLConf 2018 Notes&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://pwlconf.org/#schedule&#34;&gt;PWLConf 2018&lt;/a&gt; was one of the preconferences at Strangeloop 2018. Here are my notes for the conference. I left out the last talk, &lt;a href=&#34;https://pwlconf.org/2018/dan-piponi&#34;&gt;Stable Fluids&lt;/a&gt;, but if you find computer animation interesting I urge you to check it out.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://petermalmgren.com/five-weeks-five-problems/</guid>
+      <description>Prioritization means saying no The hardest part about being at the Recurse Center has been prioritizing what I want to work on, and not feeling bad about myself when I fall short of my goals. My goals are always way too lofty and ambitious.
+Even though I recognize that I can be too ambitious with my goals, I still want to push myself to some degree, and complete the last half of my batch with a sense of accomplishment.</description>
     </item>
     
     <item>
-      <title>About me</title>
-      <link>https://petermalmgren.com/about/</link>
-      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
+      <title>Creating a Token Scanner With Rust</title>
+      <link>https://petermalmgren.com/token-scanning-with-rust/</link>
+      <pubDate>Mon, 03 May 2021 07:29:21 -0400</pubDate>
       
-      <guid>https://petermalmgren.com/about/</guid>
-      <description>I&amp;rsquo;m a dad and software engineer. I live in the mountains of North Carolina, and currently work as a Product Engineer at Zapier.
-I&amp;rsquo;ve worked for a few other organizations, but the work I&amp;rsquo;m most proud of is my time as an electrician in the Navy, and my research for Dr. Souvenir in Computer Vision and Machine Learing.
-When I&amp;rsquo;m not parenting or working I enjoy hiking, reading, podcasts, learning, lifting weights, cooking, and occasionally writing on this blog.</description>
+      <guid>https://petermalmgren.com/token-scanning-with-rust/</guid>
+      <description>What is a token scanner? A token scanner takes a character stream and turns it into a stream of tokens, which are valid characters or character combinations for a given programming language.
+I&amp;rsquo;ve been going through Crafting Interpreters course using Rust instead of Java. Part of the course is implementing a token scanner for the Lox language.
+While I was reading the chapter, I was more or less translating the Java version into Rust.</description>
+    </item>
+    
+    <item>
+      <title>How I Find Things in the Linux Kernel</title>
+      <link>https://petermalmgren.com/tracing-linux-kernel-bpftrace/</link>
+      <pubDate>Fri, 23 Apr 2021 08:56:08 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/tracing-linux-kernel-bpftrace/</guid>
+      <description>Why dive into the Linux source code? Here are a few of reasons I&amp;rsquo;ve chosen to read the Linux source:
+ Curiosity, ex. what happens when you make an open() system call Debugging an issue which may be caused by a kernel bug, or strange kernel behavior Performance at the system level, ex. answering questions like: Where in the Linux kernel is my code calling into and spending the most time?</description>
+    </item>
+    
+    <item>
+      <title>Implementing Tracepath in Rust</title>
+      <link>https://petermalmgren.com/rust-tracepath/</link>
+      <pubDate>Thu, 22 Apr 2021 08:03:02 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/rust-tracepath/</guid>
+      <description>What is tracepath? Every time you send data over the Internet, it passes through a series of routers. Routers are network devices which know how to get packets to their destinations.
+Tracepath is a Linux program which tells you about every router a packet has to go through to get to a host. The output looks something like this:
+$ tracepath google.com -n 10 1?: [LOCALHOST] pmtu 1500 1: _gateway 6.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Vim for Rust Development</title>
+      <link>https://petermalmgren.com/rc-batch-day-9/</link>
+      <pubDate>Thu, 08 Apr 2021 07:20:01 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/rc-batch-day-9/</guid>
+      <description>Here&amp;rsquo;s how I set up neovim to work with rust-analyzer using ALE.
+Basic setup: ALE and Syntax Highlighting ALE stands for &amp;ldquo;Asynchronous Lint Engine&amp;rdquo; and acts as a language server client for Vim and Neovim. I like it because it eliminates the need to set up different plugins for every language you use. It can do things like:
+ Autocomplete Fixing (formatting, whitespace/trailing newline removal) Linting Go to definition  I also installed rust-lang/rust.</description>
+    </item>
+    
+    <item>
+      <title>Day 5: More macros</title>
+      <link>https://petermalmgren.com/rc-batch-day-5/</link>
+      <pubDate>Fri, 02 Apr 2021 07:20:01 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/rc-batch-day-5/</guid>
+      <description>Where I left off Yesterday I wrapped up my day with some almost working code to implement a for..in loop in Racket. It compiled and kind of did what I set out to do, but not quite.
+Today I&amp;rsquo;ll be diving into understand exactly how this code works, and what I can do to fix the problem with the &#39;(#&amp;lt;void&amp;gt; #&amp;lt;void&amp;gt; #&amp;lt;void&amp;gt; #&amp;lt;void&amp;gt;) being returned after it runs.
+#lang racket (define-syntax for (syntax-rules (in) ; needed to match against for in [(for item in list body .</description>
+    </item>
+    
+    <item>
+      <title>RC Day 4: Macros</title>
+      <link>https://petermalmgren.com/rc-batch-day-4/</link>
+      <pubDate>Thu, 01 Apr 2021 07:20:01 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/rc-batch-day-4/</guid>
+      <description>Macros and metaprogramming Macros are procedures that re-write code at compile time. Macros are a form of metaprogramming. Metaprogramming sounds really hard to understand, but it&amp;rsquo;s really just a program which can write other programs.
+A metaprogramming example in Python Here&amp;rsquo;s a quick example using Python, the language I&amp;rsquo;m most familiar with. It takes a number and generates code which prints every number from 0..number.
+#!/usr/bin/env python import sys if __name__ == &amp;#39;__main__&amp;#39;: if len(sys.</description>
+    </item>
+    
+    <item>
+      <title>RC Day 3: Continuations Part 2</title>
+      <link>https://petermalmgren.com/rc-batch-day-3/</link>
+      <pubDate>Wed, 31 Mar 2021 07:20:01 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/rc-batch-day-3/</guid>
+      <description>Today my goal is to learn about how to use continuations to implement a few of the following things in Racket:
+ dynamic-wind Exceptions (including define-syntax) Coroutines Time-traveling search Generators Threads Non-deterministic programming  dynamic-wind dynamic-wind is a function which takes three arguments: pre-thunk, value-thunk, and post-thunk. It has the special property that even if value-thunk returns early (from calling a continuation for example) post-thunk will still be called.
+It can be used to implement cleanup, such as closing a file, no matter what happens in value-thunk.</description>
+    </item>
+    
+    <item>
+      <title>Recurse Center Day 2</title>
+      <link>https://petermalmgren.com/rc-batch-day-2/</link>
+      <pubDate>Tue, 30 Mar 2021 07:20:01 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/rc-batch-day-2/</guid>
+      <description>What is a continuation? Defined formally, a continuation &amp;ldquo;is the computation that will receive the result of an expression.&amp;rdquo; (source: CSE-341 from the University of Washington)
+A more understandable definition To me, a computation that &amp;ldquo;receives the result of an expression&amp;rdquo; is a bit hard to understand. I find the following definition to be more understandable:
+ A continuation is something you do to an expression after the expression has been evaluated.</description>
     </item>
     
   </channel>

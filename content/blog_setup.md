@@ -9,17 +9,21 @@ tags: digitalocean, blink, hugo
 description: Getting a blog up and running using an iPad Pro, DigitalOcean, and Hugo.
 ---
 
+{{< rawhtml >}}
 <div class="headline-image">
 <img src="/apple-icon.jpg" style="width: 25%"/>
 </div>
+{{< /rawhtml >}}
  
-I love working on my iPad Pro. It's easy to carry around, relatively powerful, and doesn't suffer from the same [keyboard flaw] (https://www.forbes.com/sites/ewanspence/2019/03/27/apple-macbook-pro-butterfly-keyboard-serious-problem-confirmed/) as my Macbook Pro. I also really love running my own blog using [hugo](https://gohugo.io). Here is how I manage my Hugo blog from my iPad pro, complete with auto-reloading & CDN hosting.
+I love working on my iPad Pro. It's easy to carry around, relatively powerful, and doesn't suffer from the same [keyboard flaw](https://www.forbes.com/sites/ewanspence/2019/03/27/apple-macbook-pro-butterfly-keyboard-serious-problem-confirmed/) as my Macbook Pro. I also really love running my own blog using [hugo](https://gohugo.io). Here is how I manage my Hugo blog from my iPad pro, complete with auto-reloading & CDN hosting.
 
 ## Editing Environment
 
+{{< rawhtml >}}
 <div class="headline-image">
 <img src="/editing-environment.png" style="width: 100%; padding-top:40px;"/>
 </div>
+{{< /rawhtml >}}
 
 I run a live-editing environment on a [DigitalOcean development droplet](https://m.do.co/c/6c6de1f4746c) and use the Blink app to access it and upload files. I started by [provisioning a droplet](https://www.digitalocean.com/docs/droplets/how-to/create/), [installing Hugo](https://gohugo.io/getting-started/quick-start/) and running the following command to get a live-reloading URL with my blog:
 

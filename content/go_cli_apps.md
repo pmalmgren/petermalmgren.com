@@ -8,10 +8,12 @@ categories: Software Development
 description: Integration testing of Go CLI apps, using a Makefile and the Go test runner.
 ---
 
+{{< rawhtml >}}
 <div class="image-credit">
 <img src="/gopher.svg"/>
 <p>Credit: <a href="https://github.com/egonelbre/gophers">https://github.com/egonelbre/gophers</a></p>
 </div>
+{{< /rawhtml >}}
 
 Recently I've been building some CLI applications using Go and [cobra](https://github.com/spf13/cobra), and have been looking for an easy, reproducible way to build and test their behavior by launching the binary and testing it out with actual command line arguments. Here is what I came up with using a `Makefile` and `exec.Command`.
 

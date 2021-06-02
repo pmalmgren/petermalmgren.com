@@ -1,41 +1,94 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://petermalmgren.com/conferences/strangeloop2018/</loc>
-    <lastmod>2018-10-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://petermalmgren.com/conferences/pwlconf2018/</loc>
-    <lastmod>2018-09-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://petermalmgren.com/about/</loc>
-    <lastmod>2018-09-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://petermalmgren.com/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://petermalmgren.com/</loc>
-    <lastmod>2018-10-04T00:00:00+00:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://petermalmgren.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2021-06-01T08:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/</loc>
+    <lastmod>2021-06-01T08:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/three-rust-parsers/</loc>
+    <lastmod>2021-06-01T08:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/categories/recurse-center-2021/</loc>
+    <lastmod>2021-06-01T08:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/five-weeks-five-problems/</loc>
+    <lastmod>2021-05-22T08:16:23-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/token-scanning-with-rust/</loc>
+    <lastmod>2021-05-03T07:29:21-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/tracing-linux-kernel-bpftrace/</loc>
+    <lastmod>2021-04-23T08:56:08-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/rust-tracepath/</loc>
+    <lastmod>2021-04-22T08:03:02-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/rc-batch-day-9/</loc>
+    <lastmod>2021-04-08T07:20:01-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/rc-batch-day-5/</loc>
+    <lastmod>2021-04-02T07:20:01-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/rc-batch-day-4/</loc>
+    <lastmod>2021-04-01T07:20:01-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/rc-batch-day-3/</loc>
+    <lastmod>2021-03-31T07:20:01-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/rc-batch-day-2/</loc>
+    <lastmod>2021-03-30T07:20:01-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/rc-batch/</loc>
+    <lastmod>2021-03-24T00:00:05-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/categories/linux/</loc>
+    <lastmod>2020-12-17T16:26:17-05:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/docker-mac-bpf-perf/</loc>
+    <lastmod>2020-12-17T16:26:17-05:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/qemu-buildroot/</loc>
+    <lastmod>2020-12-03T12:15:32-05:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/orphan-children-handling-containerd/</loc>
+    <lastmod>2020-11-11T07:32:34-05:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/pid-1-child-processes-docker/</loc>
+    <lastmod>2020-10-31T08:30:55-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/signal-handling-docker/</loc>
+    <lastmod>2020-10-19T07:46:19-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/prometheus-101/</loc>
+    <lastmod>2020-07-08T09:38:38-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/categories/software-development/</loc>
+    <lastmod>2020-07-08T09:38:38-04:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/ipad-pro-blog-setup/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/go-cli-app-testing/</loc>
+    <lastmod>2019-01-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://petermalmgren.com/categories/conferences/</loc>
     <lastmod>2018-10-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url><url>
+    <loc>https://petermalmgren.com/conferences/strangeloop2018/</loc>
+    <lastmod>2018-10-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/pwlconf2018/</loc>
+    <lastmod>2018-09-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/about/</loc>
+    <lastmod>2018-09-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/categories/personal/</loc>
+    <lastmod>2018-09-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://petermalmgren.com/projects/</loc>
   </url>
-  
 </urlset>

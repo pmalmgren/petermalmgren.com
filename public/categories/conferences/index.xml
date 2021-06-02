@@ -1,40 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>conferences on Peter Malmgren</title>
+    <title>Conferences on Peter Malmgren</title>
     <link>https://petermalmgren.com/categories/conferences/</link>
-    <description>Recent content in conferences on Peter Malmgren</description>
+    <description>Recent content in Conferences on Peter Malmgren</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Oct 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://petermalmgren.com/categories/conferences/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 04 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://petermalmgren.com/categories/conferences/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Strangeloop 2018</title>
       <link>https://petermalmgren.com/conferences/strangeloop2018/</link>
       <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://petermalmgren.com/conferences/strangeloop2018/</guid>
-      <description>&lt;h2 id=&#34;strangeloop-2018&#34;&gt;Strangeloop 2018&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.thestrangeloop.com/&#34;&gt;Strangeloop 2018&lt;/a&gt; is a conference held every year in St. Louis. It features speakers from academia, the software industry, and even a museum party at the &lt;a href=&#34;https://www.citymuseum.org/&#34;&gt;City Museum&lt;/a&gt; held the night before the conference starts!&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.thestrangeloop.com/&#34;&gt;Strangeloop 2018&lt;/a&gt; is a conference held every year in St. Louis. It features speakers from academia, the software industry, and even a museum party at the &lt;a href=&#34;https://www.citymuseum.org/&#34;&gt;City Museum&lt;/a&gt; held the night before the conference starts!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PWLConf 2018 Running Notes</title>
-      <link>https://petermalmgren.com/conferences/pwlconf2018/</link>
+      <link>https://petermalmgren.com/pwlconf2018/</link>
       <pubDate>Tue, 25 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://petermalmgren.com/conferences/pwlconf2018/</guid>
+      <guid>https://petermalmgren.com/pwlconf2018/</guid>
       <description>&lt;h2 id=&#34;pwlconf-2018-notes&#34;&gt;PWLConf 2018 Notes&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://pwlconf.org/#schedule&#34;&gt;PWLConf 2018&lt;/a&gt; was one of the preconferences at Strangeloop 2018. Here are my notes for the conference. I left out the last talk, &lt;a href=&#34;https://pwlconf.org/2018/dan-piponi&#34;&gt;Stable Fluids&lt;/a&gt;, but if you find computer animation interesting I urge you to check it out.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://pwlconf.org/#schedule&#34;&gt;PWLConf 2018&lt;/a&gt; was one of the preconferences at Strangeloop 2018. Here are my notes for the conference. I left out the last talk, &lt;a href=&#34;https://pwlconf.org/2018/dan-piponi&#34;&gt;Stable Fluids&lt;/a&gt;, but if you find computer animation interesting I urge you to check it out.&lt;/p&gt;</description>
     </item>
     
   </channel>
