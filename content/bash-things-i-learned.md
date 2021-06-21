@@ -19,7 +19,9 @@ If you're interested in the history of Unix and Unix shells, I recommend reading
 
 ## What is Bash?
 
-The [Bash](https://www.gnu.org/software/bash/) shell is pretty much everywhere. It comes as the default shell on macOS and most distributions of Linux, and is available to install and use on Windows, FreeBSD, and other operating systems.
+The [Bash](https://www.gnu.org/software/bash/) shell is pretty much everywhere. It comes as the default shell on most distributions of Linux, and is available to install and use on Windows, FreeBSD, macOS, and other operating systems.
+
+Bash used to be the default on macOS, but starting with [macOS Catalina](https://www.apple.com/newsroom/2019/10/macos-catalina-is-available-today/) zsh is now the default shell. Thanks [besnn00](https://news.ycombinator.com/item?id=27554778) for pointing this out.
 
 Because it is so widely available, Bash scripts are a very common way to do things like automate tasks, run programs to parse logs and files, and run commands on CI/CD servers. Bash, along with a few other tools, are some of the most important and valuable tools to know as a software engineer. This is why I've spent the past couple of days diving into parts of Bash I didn't know about before.
 
