@@ -33,4 +33,4 @@ I'm building a tool focused on internal customer support and knowledge managemen
 
 If you've struggled with any of these problems and what I've said resonates with you, I encourage you to fill out [my beta signup form](https://petermalmgren.typeform.com/to/IHduWwGL).
 
-And if you put your email in, I promise not to spam you with anything other than a beta link when my app is ready to use.
+And if you put your email in, I promise not to spam you. I'll just send you an email with an invitation code when the app is ready to use.
