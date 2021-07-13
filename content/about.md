@@ -10,7 +10,7 @@ categories: Personal
 
 ## About me
 
-I'm a dad and software engineer. I live in the mountains of North Carolina, and am currently building a [universal inbox app](/notifications-suck/) to help manage notifications.
+I'm a dad and software engineer. I live in the mountains of North Carolina, and am currently building a [Slack app](/notifications-suck/) to make communication at work better.
 
 I'm also wrapping up a batch at the [Recurse Center](https://www.recurse.com/) where I've learned a lot about [compilers, networking, and Rust](/categories/recurse-center-2021/).
 
