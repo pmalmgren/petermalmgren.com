@@ -10,9 +10,9 @@ categories: Personal
 
 ## About me
 
-I'm a dad and software engineer. I live in the mountains of North Carolina, and am currently building a [product](https://llamabox.app) to make communication at work better.
+I'm a dad and software engineer. I live in the mountains of North Carolina, and am currently working at Akamai.
 
-I'm also wrapping up a batch at the [Recurse Center](https://www.recurse.com/) where I've learned a lot about [compilers, networking, and Rust](/categories/recurse-center-2021/).
+In 2021, I did a batch at the [Recurse Center](https://www.recurse.com/) where I've learned a lot about [compilers, networking, and Rust](/categories/recurse-center-2021/).
 
 I've worked for a [few other organizations](https://www.linkedin.com/in/ptmalmgren/), but the work I'm most proud of is the time I spent working as a senior backend engineer at [Zapier](https://zapier.com).
 
