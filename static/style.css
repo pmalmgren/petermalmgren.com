@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Serif", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Source Serif Pro", serif;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -297,7 +297,7 @@ header {
 .intro .text {
   grid-column: col 1 / span 1;
   grid-row: row 1;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Source Serif Pro', serif;
 }
 
 .intro .text h2 {
@@ -359,7 +359,7 @@ h1, h2, h3, h4, h5 {
 .post-content {
     margin: 0 auto;
     max-width: 70ch;
-    font-family: 'Noto Serif', serif;
+    font-family: 'Source Serif Pro', serif;
 }
 
 .post-content p img {
