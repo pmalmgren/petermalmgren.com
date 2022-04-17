@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Serif", serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", serif;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -195,7 +195,6 @@ header {
   grid-area: header;
 	display: grid;
 	grid-template-areas: "me nav";
-  font-family: 'Lato', sans-serif;
 }
 
 .me {
@@ -243,7 +242,6 @@ header {
   grid-template-rows: [row] auto [row];
   text-align: left;
   margin-left: 0;
-  font-family: monospace;
 }
 
 .post-list li a .date {
@@ -271,8 +269,7 @@ header {
 
 .post-list li .title h3 {
     margin-bottom: 0;
-    font-size: 1.25em;
-    font-family: monospace;
+    font-size: 1.0em;
 }
 
 .post-list li .title p {
@@ -297,7 +294,6 @@ header {
 .intro .text {
   grid-column: col 1 / span 1;
   grid-row: row 1;
-  font-family: 'Noto Serif', serif;
 }
 
 .intro .text h2 {
@@ -319,7 +315,6 @@ header {
   padding-top: 20px;
   margin: 0;
   border-bottom: 3px solid black;
-  font-family: 'Lato', sans-serif;
 }
 
 .theme-selector {
@@ -327,16 +322,11 @@ header {
     grid-row: row 3;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Lato', sans-serif;
-}
-
 /* Blog content */
 
 .post-meta {
     text-align: center;
     margin-bottom: 40px;
-    font-family: 'Lato', sans-serif;
 }
 
 .post-meta h1 {
@@ -359,7 +349,6 @@ h1, h2, h3, h4, h5 {
 .post-content {
     margin: 0 auto;
     max-width: 70ch;
-    font-family: 'Noto Serif', serif;
 }
 
 .post-content p img {
