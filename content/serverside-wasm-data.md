@@ -1,6 +1,6 @@
 
 ---
-title: "Getting data in and out of WASI Modules"
+title: "Getting data in and out of WASI modules"
 description: "Fun with wasmtime, linear memory, and external bindings"
 date: 2022-04-17T08:56:08-04:00
 categories: Web Assembly
@@ -23,7 +23,7 @@ Once the interface types proposal is finalized and implemented, I think this wil
 
 Another approach I’m not going to cover is using a library to produce the bindings and glue code. I recommend doing this unless you’re writing a platform for running compiled WebAssembly, which I am :).
 
-You can use wasm-bindgen, which also has a way to produce bindings for browser and web APIs. There is also a newer library called fp-bindgen which helps produce bindings for non-web environments, like Rust.
+You can use wasm-bindgen, which also has a way to produce bindings for browser and web APIs. There is also a newer library called [fp-bindgen](https://github.com/fiberplane/fp-bindgen) which helps produce bindings for non-web environments, like Rust.
 
 ## An example
 
@@ -273,7 +273,7 @@ The downsides to using linear memory are: unsafe code, fragmentation (allocation
 
 WebAssembly is really fun but passing in data can be a bit of a pain 😅. Interface types should help take care of this in the future.
 
-Here is a full working version of the code for the sharing with stdio and sharing with memory approaches.
+Here is a full working version of the code for the [sharing with stdio](https://github.com/pmalmgren/wasi-data-sharing/tree/shared-stdio-demo) and [sharing with memory](https://github.com/pmalmgren/wasi-data-sharing/tree/shared-linear-memory-demo) approaches.
 
 ## References
 
