@@ -82,9 +82,6 @@ footer .social a {
   h2 {
     font-size: 1.2em !important;
   }
-  .post-content {
-    font-size: 75%;
-  }
   .post-header {
     padding-top: 0 !important;
   }
@@ -418,7 +415,6 @@ code, pre, samp {
 }
 
 code {
-  font-size: 1.25em;
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
