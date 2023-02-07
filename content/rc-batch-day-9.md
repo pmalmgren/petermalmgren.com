@@ -74,7 +74,7 @@ $ chmod +x ~/.bin/rust-analyzer
 I used the following configuration to tell ALE to use Rust analyzer for Rust files:
 
 ```vim
-" Required, explicitly enable Elixir LS
+" Required, explicitly enable Rust LS
 let g:ale_linters = {
 \  'rust': ['analyzer'],
 \}
