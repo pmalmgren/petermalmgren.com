@@ -328,7 +328,7 @@ enum Token {
     Dash,
     Star,
     Slash,
-    Carrot,
+    Caret,
     RightParen,
     LeftParen,
     End,
@@ -361,7 +361,7 @@ impl TryFrom<Token> for Operator {
             Token::Plus => Ok(Operator::Add),
             Token::Star => Ok(Operator::Multiply),
             Token::Dash => Ok(Operator::Subtract),
-            Token::Carrot => Ok(Operator::Power),
+            Token::Caret => Ok(Operator::Power),
             Token::Slash => Ok(Operator::Divide),
             _ => Err("Can only convert operators"),
         }
@@ -510,7 +510,7 @@ impl<'a> Parser<'a> {
     fn factor(&mut self) -> Result<Expression, SyntaxError> {
         let expr = self.primary()?;
         let next = self.iter.peek().unwrap();
-        if *next == &Token::Carrot {
+        if *next == &Token::Caret {
             self.iter.next();
             let rhs = self.factor()?;
             return Ok(Expression::Binary(
