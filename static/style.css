@@ -202,13 +202,12 @@ header {
 .navigation {
   grid-area: nav;
   text-align: right;
-  padding-top: 8px;
 }
 
-.me h3 {
+.me h2 {
   margin: 0;
-  font-weight: 400;
-  font-size: 1.4em;
+  font-weight: 600;
+  font-size: 1.1em;
 }
 
 .me a {
@@ -412,6 +411,7 @@ code, pre, samp {
   white-space: pre-wrap;
   overflow-x: hidden;
   overflow: scroll;
+  font-size: 1.1em;
 }
 
 code {

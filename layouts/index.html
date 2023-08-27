@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   {{- partial "head.html" . -}}
-  {{- partial "header.html" . -}}
   <body>
   <article>
   <main>
@@ -30,7 +29,7 @@
               <h3>{{ .Title }}</h3>
             </div>
             <div class="date">
-              <p>{{ .Date.Format "Jan 02 2006" }}</p>
+              <p>{{ .Date.Format "Monday, January 2 2006" }}</p>
             </div>
           </a>
         </li>
@@ -48,7 +47,7 @@
               <h3>{{ .Title }}</h3>
             </div>
             <div class="date">
-              <p>{{ .Date.Format "Jan 02 2006" }}</p>
+              <p>{{ .Date.Format "Monday, January 2 2006" }}</p>
             </div>
           </a>
         </li>
