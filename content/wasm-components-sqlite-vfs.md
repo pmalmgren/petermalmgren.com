@@ -262,7 +262,7 @@ These functions allow a very minimal version of SQLite to run in the browser.
 
 ### JavaScript: Building the WebAssembly Component
 
-[jco](https://github.com/bytecodealliance/jco) is a tool that can turn compiled WebAssembly into a WebAssembly component, and then turn that into a library that can be used in a JS environment. The library still uses WebAssembly, but builds shims for calling back and forth into WebAssembly, something that can be a major headache otherwise.
+[jco](https://github.com/bytecodealliance/jco) can turn compiled WebAssembly into a WebAssembly component, and then turn that into a library that can be used in JavaScript. jco also takes care of building the shims for calling back and forth into WebAssembly, something that can be a major headache otherwise.
 
 I used the following versions in `package.json`:
 
@@ -273,7 +273,6 @@ I used the following versions in `package.json`:
     "@bytecodealliance/preview2-shim": "0.0.16",
   },
 }
-
 ```
 
 Afterwards, we can use the jco CLI to build a WebAssembly component like this:
@@ -356,8 +355,14 @@ The app basically does nothing other than log some output to the console which p
 
 The goal of this post is to draw attention to the [awesome work happening in WebAssembly by the Bytecode Alliance](https://bytecodealliance.org/), particularly around WebAssembly components and how they can be used to push the boundaries of what's possible in JS and embedded environments.
 
-Even though my WIT interface only defined one VFS function, `vfsOpen`, I believe that it should be possible to extend and improve the approach I outlined here to run a fully customizable browser version of SQLite using WebAssembly components without emscripten.
+Even though my WIT interface only defined one VFS function, `vfsOpen`, I believe that it should be possible to extend and improve the approach I outlined here to run a fully customizable browser version of SQLite using WebAssembly components without the need for emscripten.
 
 I hope this post sparks some further discussion between the SQLite project and the WebAssembly community on using WebAssembly components to embed and run SQLite.
 
 I hope you enjoyed this post and found it helpful!
+
+## Credits
+
+Thanks to [@guybedford](https://twitter.com/guybedford) for proofreading this post and providing some tips on using the jco CLI to build WebAssembly components.
+
+Thanks to the authors of [rustqlite](https://github.com/rusqlite/rusqlite) for providing and maintaining an awesome crate.
