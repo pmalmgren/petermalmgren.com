@@ -1,6 +1,6 @@
 ---
 title: "Building a SQLite VFS in JavaScript with WebAssembly Components"
-date: 2023-09-22T07:00:00-04:00
+date: 2023-09-25T07:00:00-04:00
 categories: WebAssembly, SQLite
 draft: false
 ---
@@ -100,9 +100,11 @@ I chose [rustqlite](https://docs.rs/sqlite/latest/sqlite/) because it supports t
 
 ```toml
 [package]
-name = "example"
+name = "sqlite-component"
 version = "0.1.0"
 edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
 crate-type = ["cdylib"]
@@ -129,22 +131,21 @@ export WASI_SYSROOT="${WASI_SDK_PATH}/share/wasi-sysroot"
 export CC="${WASI_SDK_PATH}/bin/clang --sysroot=${WASI_SYSROOT}"
 export AR="${WASI_SDK_PATH}/bin/llvm-ar"
 export CC_wasm32_wasi="${CC}"
-export CARGO_TARGET_WASM32_WASI_LINKER="${WASI_SDK_PATH}/bin/clang"
+export CARGO_TARGET_WASM32_WASI_LINKER="${WASI_SDK_PATH}/bin/wasm-ld"
 
 export LIBSQLITE3_FLAGS="\
-    -DSQLITE_OS_OTHER \
-    -USQLITE_TEMP_STORE \
-    -DSQLITE_TEMP_STORE=3 \
-    -USQLITE_THREADSAFE \
+    -DSQLITE_TEMP_STORE=2 \
     -DSQLITE_THREADSAFE=0 \
     -DSQLITE_OMIT_LOCALTIME \
     -DSQLITE_OMIT_LOAD_EXTENSION \
     -DLONGDOUBLE_TYPE=double"
 
-cargo build --release --target "wasm32-wasi"
+cargo build --target "wasm32-wasi"
+
+cp ./target/wasm32-wasi/debug/sqlite_component.wasm sqlite-component-core.wasm
 ```
 
-Once we have this script, we can compile everything with this command: `WASI_SDK=/lib/wasi-sdk ./build.sh`
+This script must be provided with the path to wasi-sdk: `WASI_SDK=/lib/wasi-sdk ./build.sh`
 
 ### An Incomplete SQLite VFS WIT Interface
 
@@ -257,113 +258,47 @@ fn sqlite_open(path: String, vfs: String) -> Result<i32, i32> {
 }
 ```
 
-Once all of this is built, we have to use the [wasm-tools CLI](https://github.com/bytecodealliance/wasm-tools) to change the binary into a WebAssembly component. We also have to use a pre-compiled WASI module that has been adapted to a WebAssembly component so that we will have access to all of the WASI imports, like reading from files, writing to files, etc.
+These functions allow a very minimal version of SQLite to run in the browser.
 
-```bash
-wasm-tools component new ./target/wasm32-wasi/debug/example.wasm -o example.wasm \
-    --adapt ./wasi_snapshot_preview1.wasm
-```
+### JavaScript: Building the WebAssembly Component
 
-`wasi_snapshot_preview1.wasm` can be obtained from the [preview2-prototyping release page](https://github.com/bytecodealliance/preview2-prototyping/releases). We want the `.reactor.wasm` file because we are compiling a library, which has no `_main` entrypoint, and therefore can't be used as a command.
+[jco](https://github.com/bytecodealliance/jco) is a tool that can turn compiled WebAssembly into a WebAssembly component, and then turn that into a library that can be used in a JS environment. The library still uses WebAssembly, but builds shims for calling back and forth into WebAssembly, something that can be a major headache otherwise.
 
-At the end of this process I ended up with a file called `example.wasm` which contains SQLite and a library for implementing a very trivial VFS.
-
-### JavaScript: Transpiling the WebAssembly Component to JavaScript
-
-[jco](https://github.com/bytecodealliance/jco) is a tool that can take a compiled WebAssembly component and turn it into a library that can be used in a JS environment. The library still uses WebAssembly, but builds shims for calling back and forth into WebAssembly, something that can be a major headache otherwise.
-
-jco comes with a CLI interface that can [transpile a component](https://github.com/bytecodealliance/jco#transpile) into JavaScript. The JavaScript interfaces allow us to provide imports to the WebAssembly component, and to consume the exports that it provides.
-
-I installed the `jco` package and ran this command, which failed:
-
-```bash
-$ pnpm exec jco transpile example.wasm -o src/wasm
-(jco transpile) ComponentError: failed to extract interface information from component
-...
-```
-
-After further research, I determined that this was most likely due to a mismatch between something in jco, wit-bindgen, the WASI shims from [preview2-prototyping](https://github.com/bytecodealliance/preview2-prototyping/tree/main), and a dependent package [preview2-shim](https://github.com/bytecodealliance/jco/tree/0.9.0/packages/preview2-shim).
-
-This [GitHub issue](https://github.com/bytecodealliance/jco/issues/90) suggested pinning the `preview2-prototyping` package at `0.0.9` to solve an issue with feature imports. I ended up using this suggestion and it solved the transpile error I was having too. I'm not sure what the cause was, but I ended up with these dependencies in my `package.json`:
+I used the following versions in `package.json`:
 
 ```json
 {
-  // package.json
   "devDependencies": {
-    "@bytecodealliance/jco": "0.9.0",
-    "@bytecodealliance/preview2-shim": "0.0.9"
-  }
+    "@bytecodealliance/jco": "0.12.1",
+    "@bytecodealliance/preview2-shim": "0.0.16",
+  },
 }
+
 ```
 
-These solved the transpile errors but there were some runtime errors:
+Afterwards, we can use the jco CLI to build a WebAssembly component like this:
 
 ```bash
-$ pnpm start
-...
-Module build failed: UnhandledSchemeError: Reading from "wasi:poll/poll" is not handled by plugins (Unhandled scheme).
-Module build failed: UnhandledSchemeError: Reading from "wasi:clocks/wall-clock" is not handled by plugins (Unhandled scheme).
-Module build failed: UnhandledSchemeError: Reading from "wasi:clocks/monotonic-clock" is not handled by plugins (Unhandled scheme).
-Webpack supports "data:" and "file:" URIs by default.
+$ pnpm exec jco new ../sqlite-component-core.wasm --wasi-reactor -o sqlite-component.wasm
 ```
 
-After looking at the transpiled code, I noticed that `wasi:poll/poll` was being imported and webpack didn't like this. I tried searching but couldn't find a plugin which fixes this issue.
+The `--wasi-reactor` flag will pull a compatible WASI adapter and use that to build a WebAssembly component.
 
-I ended up adding an import map which mapped the `wasi:...` imports to their `preview2-shim` counterparts:
+### JavaScript: Transpiling the WebAssembly Component
+
+Next, we use the jco CLI [to transpile](https://github.com/bytecodealliance/jco#transpile) the WebAssembly component to JavaScript:
 
 ```bash
-pnpm exec jco transpile ../example.wasm \
+$ pnpm exec jco transpile sqlite-component.wasm \
     --no-nodejs-compat \
-    --map wasi:poll/*=@bytecodealliance/preview2-shim/poll#* \
-    --map wasi:clocks/monotonic-clock*=@bytecodealliance/preview2-shim/clocks#monotonicClock* \
-    --map wasi:clocks/wall-clock*=@bytecodealliance/preview2-shim/clocks#wallClock* \
     --map sqlite3-wasm-vfs:vfs/imports=../imports \
     -o src/wasm
-```
-
-`transpile` was successful, but I ended up with a different error from TypeScript:
-
-```bash
-ERROR in /Users/ptmalmgren/src/example/frontend/src/wasm/imports/poll.d.ts
-3:29-31
-[tsl] ERROR in /Users/ptmalmgren/src/example/frontend/src/wasm/imports/poll.d.ts(3,30)
-      TS1359: Identifier expected. 'in' is a reserved word that cannot be used here.
-ts-loader-default_e3b0c44298fc1c14
-
-webpack 5.88.2 compiled with 1 error in 1505 ms
-```
-
-`poll.d.ts` contains a reserved keyword `in`:
-
-```typescript
-export namespace Poll {
-  export function dropPollable(this: Pollable): void;
-  export function pollOneoff(in: Uint32Array): Uint8Array | ArrayBuffer;
-}
-export type Pollable = number;
-```
-
-Because my TypeScript skills are not great, I ended up fixing this by adding a call to `sed` to replace `in` with `input`, which ended up solving the problem. I put all of this together in a frontend build script:
-
-```bash
-#!/bin/bash
-
-rm -rf src/wasm/*
-pnpm exec jco transpile ../example.wasm \
-    --no-nodejs-compat \
-    --map wasi:poll/*=@bytecodealliance/preview2-shim/poll#* \
-    --map wasi:clocks/monotonic-clock*=@bytecodealliance/preview2-shim/clocks#monotonicClock* \
-    --map wasi:clocks/wall-clock*=@bytecodealliance/preview2-shim/clocks#wallClock* \
-    --map sqlite3-wasm-vfs:vfs/imports=../imports \
-    -o src/wasm
-
-sed -i '' 's/in:/input:/g' ./src/wasm/imports/poll.d.ts
 ```
 
 We also have to define the imports needed by our library:
 
 ```typescript
-import type { OpenFlags } from "./wasm/imports/types";
+import type { OpenFlags } from "./wasm/interfaces/sqlite3-wasm-vfs-vfs-types";
 
 const log = (out: string) => {
   console.log(out);
@@ -387,7 +322,7 @@ I used a client-side React app to access SQLite from a React component:
 
 ```tsx
 import { useEffect, useState } from "react";
-import { init, registerVfs, sqliteOpen } from "../wasm/example.js";
+import { init, registerVfs, sqliteOpen } from "../wasm/sqlite-component";
 
 const DB = "path.db";
 
@@ -421,8 +356,8 @@ The app basically does nothing other than log some output to the console which p
 
 The goal of this post is to draw attention to the [awesome work happening in WebAssembly by the Bytecode Alliance](https://bytecodealliance.org/), particularly around WebAssembly components and how they can be used to push the boundaries of what's possible in JS and embedded environments.
 
-Even though my WIT interface only defined one VFS function, `vfsOpen`, I believe that it should be possible to extend and improve the approach I outlined here to run a fully customizable browser version of SQLite using WebAssembly components.
+Even though my WIT interface only defined one VFS function, `vfsOpen`, I believe that it should be possible to extend and improve the approach I outlined here to run a fully customizable browser version of SQLite using WebAssembly components without emscripten.
 
-And as far as I know, the only SQLite in the browser implementations use emscripten. It should theoretically be possible now to write a full implementation of SQLite that runs in the browser using WIT and WebAssembly components. I hope this post sparks some further discussion between the SQLite project and the WebAssembly community on using WebAssembly components to embed and run SQLite.
+I hope this post sparks some further discussion between the SQLite project and the WebAssembly community on using WebAssembly components to embed and run SQLite.
 
 I hope you enjoyed this post and found it helpful!
