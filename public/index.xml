@@ -6,7 +6,36 @@
     <description>Recent content in Home on Peter Malmgren</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Jun 2021 08:00:00 -0400</lastBuildDate><atom:link href="https://petermalmgren.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Mar 2023 07:53:41 -0500</lastBuildDate><atom:link href="https://petermalmgren.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notes on Biscuits for Authentication</title>
+      <link>https://petermalmgren.com/biscuitsec-0/</link>
+      <pubDate>Wed, 08 Mar 2023 07:53:41 -0500</pubDate>
+      
+      <guid>https://petermalmgren.com/biscuitsec-0/</guid>
+      <description>What are biscuits? Biscuits are a way to implement authorization tokens, such as API tokens, OAuth access tokens, and session ID cookie values.
+Important Concepts &amp;amp; Terminology Authentication is the process of verifying that someone is who they say they are Authorization is the process of verifying that a token has access to do some operation on a resource Proof of possession is a process to prove that someone is in possession of a private key Delegation is a way to give someone else access to act on your behalf in an authorization systems, either implicitly via a bearer token, or explicitly via attenuation Attenuation is the process of adding a restriction to a token to support delegation Bearer tokens are credentials which grant access to resources, delegating the authority associated with them to the holder of the token Sessions are some proof that a a user has authenticated, and are usually stored or identified by a cookie Centralized or stateful authentication is a system of authentication that relies in a bearer token and some database to verify that a token is valid Decentralized or stateless authentication is a system of authentication that relies on cryptography to verify that a token is valid Comparisons Biscuits vs JWTs Biscuits are similar to JWTs in that they carry context about who is making the request and use public key cryptography for token verification.</description>
+    </item>
+    
+    <item>
+      <title>Getting data in and out of WASI modules</title>
+      <link>https://petermalmgren.com/serverside-wasm-data/</link>
+      <pubDate>Sun, 17 Apr 2022 08:56:08 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/serverside-wasm-data/</guid>
+      <description>The problem After learning about WebAssembly, I kept running into a problem: Getting data in and out of WebAssembly, specifically server-side WebAssembly run with wasmtime, can be really hard.
+Even though there are lots of examples of how to do this on the web, most of them focus specifically on JS and browser contexts. Here I’m going to focus on server-side WebAssembly, and in particular WebAssembly modules compiled into WebAssembly System Interface, or WASI.</description>
+    </item>
+    
+    <item>
+      <title>Cool things I learned about Bash this week</title>
+      <link>https://petermalmgren.com/bash-things-i-learned/</link>
+      <pubDate>Wed, 02 Jun 2021 09:15:03 -0400</pubDate>
+      
+      <guid>https://petermalmgren.com/bash-things-i-learned/</guid>
+      <description>What is a shell? Bash is a kind of program called a shell. Shells are usually text-based, and allow us to interact with our computers by exposing a set of builtin functions for things like directory and file navigation, and run commands. The first Unix shell was called the Thompson shell and was written in 1971. Shells have come a long way since then, but more modern shells, including Bash, still use a bunch of the same ideas and concepts as this original shell that was written almost 50 years ago.</description>
+    </item>
+    
     <item>
       <title>Implementing a calculator parser in Rust</title>
       <link>https://petermalmgren.com/three-rust-parsers/</link>
@@ -45,7 +74,7 @@ While I was reading the chapter, I was more or less translating the Java version
       
       <guid>https://petermalmgren.com/tracing-linux-kernel-bpftrace/</guid>
       <description>Why dive into the Linux source code? Here are a few of reasons I&amp;rsquo;ve chosen to read the Linux source:
- Curiosity, ex. what happens when you make an open() system call Debugging an issue which may be caused by a kernel bug, or strange kernel behavior Performance at the system level, ex. answering questions like: Where in the Linux kernel is my code calling into and spending the most time?</description>
+Curiosity, ex. what happens when you make an open() system call Debugging an issue which may be caused by a kernel bug, or strange kernel behavior Performance at the system level, ex. answering questions like: Where in the Linux kernel is my code calling into and spending the most time? I think it&amp;rsquo;s fun :) I&amp;rsquo;ve felt a bit intimidated in the past by opening up the Linux source tree and reading through the code.</description>
     </item>
     
     <item>
@@ -67,7 +96,7 @@ $ tracepath google.com -n 10 1?: [LOCALHOST] pmtu 1500 1: _gateway 6.</descripti
       <guid>https://petermalmgren.com/rc-batch-day-9/</guid>
       <description>Here&amp;rsquo;s how I set up neovim to work with rust-analyzer using ALE.
 Basic setup: ALE and Syntax Highlighting ALE stands for &amp;ldquo;Asynchronous Lint Engine&amp;rdquo; and acts as a language server client for Vim and Neovim. I like it because it eliminates the need to set up different plugins for every language you use. It can do things like:
- Autocomplete Fixing (formatting, whitespace/trailing newline removal) Linting Go to definition  I also installed rust-lang/rust.</description>
+Autocomplete Fixing (formatting, whitespace/trailing newline removal) Linting Go to definition I also installed rust-lang/rust.</description>
     </item>
     
     <item>
@@ -79,39 +108,6 @@ Basic setup: ALE and Syntax Highlighting ALE stands for &amp;ldquo;Asynchronous 
       <description>Where I left off Yesterday I wrapped up my day with some almost working code to implement a for..in loop in Racket. It compiled and kind of did what I set out to do, but not quite.
 Today I&amp;rsquo;ll be diving into understand exactly how this code works, and what I can do to fix the problem with the &#39;(#&amp;lt;void&amp;gt; #&amp;lt;void&amp;gt; #&amp;lt;void&amp;gt; #&amp;lt;void&amp;gt;) being returned after it runs.
 #lang racket (define-syntax for (syntax-rules (in) ; needed to match against for in [(for item in list body .</description>
-    </item>
-    
-    <item>
-      <title>RC Day 4: Macros</title>
-      <link>https://petermalmgren.com/rc-batch-day-4/</link>
-      <pubDate>Thu, 01 Apr 2021 07:20:01 -0400</pubDate>
-      
-      <guid>https://petermalmgren.com/rc-batch-day-4/</guid>
-      <description>Macros and metaprogramming Macros are procedures that re-write code at compile time. Macros are a form of metaprogramming. Metaprogramming sounds really hard to understand, but it&amp;rsquo;s really just a program which can write other programs.
-A metaprogramming example in Python Here&amp;rsquo;s a quick example using Python, the language I&amp;rsquo;m most familiar with. It takes a number and generates code which prints every number from 0..number.
-#!/usr/bin/env python import sys if __name__ == &amp;#39;__main__&amp;#39;: if len(sys.</description>
-    </item>
-    
-    <item>
-      <title>RC Day 3: Continuations Part 2</title>
-      <link>https://petermalmgren.com/rc-batch-day-3/</link>
-      <pubDate>Wed, 31 Mar 2021 07:20:01 -0400</pubDate>
-      
-      <guid>https://petermalmgren.com/rc-batch-day-3/</guid>
-      <description>Today my goal is to learn about how to use continuations to implement a few of the following things in Racket:
- dynamic-wind Exceptions (including define-syntax) Coroutines Time-traveling search Generators Threads Non-deterministic programming  dynamic-wind dynamic-wind is a function which takes three arguments: pre-thunk, value-thunk, and post-thunk. It has the special property that even if value-thunk returns early (from calling a continuation for example) post-thunk will still be called.
-It can be used to implement cleanup, such as closing a file, no matter what happens in value-thunk.</description>
-    </item>
-    
-    <item>
-      <title>Recurse Center Day 2</title>
-      <link>https://petermalmgren.com/rc-batch-day-2/</link>
-      <pubDate>Tue, 30 Mar 2021 07:20:01 -0400</pubDate>
-      
-      <guid>https://petermalmgren.com/rc-batch-day-2/</guid>
-      <description>What is a continuation? Defined formally, a continuation &amp;ldquo;is the computation that will receive the result of an expression.&amp;rdquo; (source: CSE-341 from the University of Washington)
-A more understandable definition To me, a computation that &amp;ldquo;receives the result of an expression&amp;rdquo; is a bit hard to understand. I find the following definition to be more understandable:
- A continuation is something you do to an expression after the expression has been evaluated.</description>
     </item>
     
   </channel>
